@@ -15,6 +15,7 @@ import EfficiencyIndex from "@/pages/efficiency-index";
 import FeelAgainProgram from "@/pages/feel-again-program";
 import Donate from "@/pages/donate";
 import Transparency from "@/pages/transparency";
+import Reports from "@/pages/reports";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -34,6 +35,7 @@ function Router() {
           <Route path="/feel-again" component={FeelAgainProgram} />
           <Route path="/donate" component={Donate} />
           <Route path="/transparency" component={Transparency} />
+          <Route path="/reports" component={Reports} />
         </>
       )}
       <Route component={NotFound} />
