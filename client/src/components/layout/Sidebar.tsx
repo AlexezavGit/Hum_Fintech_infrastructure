@@ -10,13 +10,16 @@ import {
   FileText,
   Plus,
   Search,
-  Users
+  Users,
+  Brain,
+  Blocks
 } from "lucide-react";
 
 const navigationItems = [
   { href: "/", label: "Огляд", icon: BarChart3 },
   { href: "/programs", label: "Програми", icon: Users },
   { href: "/projects", label: "Проекти", icon: FolderOpen },
+  { href: "/ai-analytics", label: "AI Аналітика", icon: Brain },
   { href: "/donate", label: "Донати", icon: Heart },
   { href: "/transparency", label: "Прозорість", icon: Shield },
   { href: "/reports", label: "Звіти", icon: FileText },
