@@ -8,6 +8,7 @@ import NotFound from "@/pages/not-found";
 import Landing from "@/pages/landing";
 import Dashboard from "@/pages/dashboard";
 import Projects from "@/pages/projects";
+import Programs from "@/pages/programs";
 import Donate from "@/pages/donate";
 import Transparency from "@/pages/transparency";
 
@@ -22,6 +23,7 @@ function Router() {
         <>
           <Route path="/" component={Dashboard} />
           <Route path="/projects" component={Projects} />
+          <Route path="/programs" component={Programs} />
           <Route path="/donate" component={Donate} />
           <Route path="/transparency" component={Transparency} />
         </>

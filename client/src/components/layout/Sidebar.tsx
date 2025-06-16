@@ -9,16 +9,17 @@ import {
   Shield, 
   FileText,
   Plus,
-  Search
+  Search,
+  Users
 } from "lucide-react";
 
 const navigationItems = [
-  { href: "/", label: "Overview", icon: BarChart3 },
-  { href: "/donations", label: "My Donations", icon: Heart },
-  { href: "/projects", label: "Projects", icon: FolderOpen },
-  { href: "/impact", label: "Impact Tracking", icon: TrendingUp },
-  { href: "/transparency", label: "Transparency", icon: Shield },
-  { href: "/reports", label: "Reports", icon: FileText },
+  { href: "/", label: "Огляд", icon: BarChart3 },
+  { href: "/programs", label: "Програми", icon: Users },
+  { href: "/projects", label: "Проекти", icon: FolderOpen },
+  { href: "/donate", label: "Донати", icon: Heart },
+  { href: "/transparency", label: "Прозорість", icon: Shield },
+  { href: "/reports", label: "Звіти", icon: FileText },
 ];
 
 export default function Sidebar() {
