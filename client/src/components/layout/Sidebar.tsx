@@ -13,12 +13,14 @@ import {
   Users,
   Brain,
   Blocks,
-  Calculator
+  Calculator,
+  HeartHandshake
 } from "lucide-react";
 
 const navigationItems = [
   { href: "/", label: "Огляд", icon: BarChart3 },
   { href: "/programs", label: "Програми", icon: Users },
+  { href: "/feel-again", label: "Feel Again", icon: HeartHandshake },
   { href: "/projects", label: "Проекти", icon: FolderOpen },
   { href: "/ai-analytics", label: "AI Аналітика", icon: Brain },
   { href: "/blockchain-monitor", label: "Blockchain", icon: Blocks },

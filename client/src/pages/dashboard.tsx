@@ -1,6 +1,7 @@
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Header from "@/components/layout/Header";
 import Sidebar from "@/components/layout/Sidebar";
 import StatsCards from "@/components/dashboard/StatsCards";
@@ -9,6 +10,20 @@ import QuickDonate from "@/components/dashboard/QuickDonate";
 import RecentActivity from "@/components/dashboard/RecentActivity";
 import TransparencyMetrics from "@/components/dashboard/TransparencyMetrics";
 import FinancialDashboard from "@/components/dashboard/FinancialDashboard";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { 
+  Activity, 
+  Users, 
+  Building, 
+  DollarSign, 
+  TrendingUp, 
+  Heart,
+  Calculator,
+  Globe,
+  Zap
+} from "lucide-react";
 import { isUnauthorizedError } from "@/lib/authUtils";
 
 export default function Dashboard() {
