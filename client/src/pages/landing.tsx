@@ -13,7 +13,7 @@ export default function Landing() {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <Heart className="text-white text-sm" />
               </div>
-              <span className="text-xl font-bold text-gray-900">HumanAid</span>
+              <span className="text-xl font-bold text-gray-900">Stream</span>
             </div>
             <Button 
               onClick={() => window.location.href = '/api/login'}
@@ -30,11 +30,12 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              Transparent Humanitarian Resource Distribution
+              Stream: Цифровий Міст Гуманітарної Взаємодії
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Join our blockchain-powered platform that ensures every donation reaches those who need it most. 
-              Track your impact with complete transparency and real-time verification.
+              Технологічна платформа для керованої та підзвітної допомоги, координації зусиль 
+              та супроводу діяльності акторів різних рівнів реагування. Прозора дистрибуція ресурсів 
+              та краудфандинг з повним відстеженням на блокчейні.
             </p>
             <div className="flex justify-center space-x-4">
               <Button 
@@ -61,10 +62,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose HumanAid?
+              Чому Stream?
             </h2>
             <p className="text-lg text-gray-600">
-              Our platform combines cutting-edge technology with humanitarian mission
+              Наша платформа об'єднує передові технології з гуманітарною місією для максимальної ефективності
             </p>
           </div>
 
@@ -75,10 +76,10 @@ export default function Landing() {
                   <Shield className="text-primary text-lg" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Blockchain Security
+                  Блокчейн Безпека
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Every transaction is recorded on blockchain for immutable transparency
+                  Кожна транзакція записується в блокчейн для незмінної прозорості
                 </p>
               </CardContent>
             </Card>
@@ -89,10 +90,10 @@ export default function Landing() {
                   <TrendingUp className="text-secondary text-lg" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Real-time Tracking
+                  Відстеження в Реальному Часі
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Monitor your donations from contribution to final distribution
+                  Відстежуйте свої донації від внеску до фінального розподілу
                 </p>
               </CardContent>
             </Card>

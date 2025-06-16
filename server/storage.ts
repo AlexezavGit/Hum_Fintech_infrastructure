@@ -19,7 +19,7 @@ import {
   type InsertActivityLog,
 } from "@shared/schema";
 import { db } from "./db";
-import { eq, desc, sum, count, and, gte, lte } from "drizzle-orm";
+import { eq, desc, sum, count, and, gte, lte, sql } from "drizzle-orm";
 
 export interface IStorage {
   // User operations (mandatory for Replit Auth)
@@ -113,7 +113,7 @@ export class DatabaseStorage implements IStorage {
 
   async deleteProject(id: number): Promise<boolean> {
     const result = await db.delete(projects).where(eq(projects.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount || 0) > 0;
   }
 
   // Donation operations
