@@ -12,7 +12,8 @@ import {
   Search,
   Users,
   Brain,
-  Blocks
+  Blocks,
+  Calculator
 } from "lucide-react";
 
 const navigationItems = [
@@ -20,6 +21,8 @@ const navigationItems = [
   { href: "/programs", label: "Програми", icon: Users },
   { href: "/projects", label: "Проекти", icon: FolderOpen },
   { href: "/ai-analytics", label: "AI Аналітика", icon: Brain },
+  { href: "/blockchain-monitor", label: "Blockchain", icon: Blocks },
+  { href: "/efficiency-index", label: "CIE Індекс", icon: Calculator },
   { href: "/donate", label: "Донати", icon: Heart },
   { href: "/transparency", label: "Прозорість", icon: Shield },
   { href: "/reports", label: "Звіти", icon: FileText },

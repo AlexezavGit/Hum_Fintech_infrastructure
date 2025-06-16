@@ -11,6 +11,7 @@ import Projects from "@/pages/projects";
 import Programs from "@/pages/programs";
 import AIAnalytics from "@/pages/ai-analytics";
 import BlockchainMonitor from "@/pages/blockchain-monitor";
+import EfficiencyIndex from "@/pages/efficiency-index";
 import Donate from "@/pages/donate";
 import Transparency from "@/pages/transparency";
 
@@ -28,6 +29,7 @@ function Router() {
           <Route path="/programs" component={Programs} />
           <Route path="/ai-analytics" component={AIAnalytics} />
           <Route path="/blockchain-monitor" component={BlockchainMonitor} />
+          <Route path="/efficiency-index" component={EfficiencyIndex} />
           <Route path="/donate" component={Donate} />
           <Route path="/transparency" component={Transparency} />
         </>
