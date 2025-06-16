@@ -253,10 +253,7 @@ export default function FeelAgainProgram() {
 
   const createNewBeneficiaryMutation = useMutation({
     mutationFn: async (data: any) => {
-      return apiRequest("/api/feel-again/beneficiaries", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      return apiRequest("POST", "/api/feel-again/beneficiaries", data);
     },
     onSuccess: () => {
       toast({
@@ -288,10 +285,7 @@ export default function FeelAgainProgram() {
 
   const updateOrderStatusMutation = useMutation({
     mutationFn: async ({ orderId, action }: { orderId: string; action: string }) => {
-      return apiRequest(`/api/feel-again/orders/${orderId}/actions`, {
-        method: "POST",
-        body: JSON.stringify({ action }),
-      });
+      return apiRequest("POST", `/api/feel-again/orders/${orderId}/actions`, { action });
     },
     onSuccess: () => {
       toast({

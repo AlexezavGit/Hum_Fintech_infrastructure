@@ -428,7 +428,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Log activity for Grand Bargain reporting
       await storage.logActivity({
-        userId: req.user.claims.sub,
+        userId: (req.user as any).claims.sub,
         action: "feel_again_registration",
         description: `New beneficiary registered in Feel Again program: ${beneficiary.pseudonym}`,
         entityType: "beneficiary",
@@ -481,7 +481,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Log for transparency and reporting
       await storage.logActivity({
-        userId: req.user.claims.sub,
+        userId: (req.user as any).claims.sub,
         action: `feel_again_${action}`,
         description: `Digital order ${orderId} action: ${action}`,
         entityType: "digital_order",
