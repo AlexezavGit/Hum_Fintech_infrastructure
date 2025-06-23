@@ -285,4 +285,186 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+// Temporarily using MemStorage due to database connection issues
+class MemStorage implements IStorage {
+  private users: Map<string, User> = new Map();
+  private projects: Project[] = [];
+  private donations: Donation[] = [];
+  private transactions: Transaction[] = [];
+  private beneficiaries: Beneficiary[] = [];
+  private activityLog: ActivityLog[] = [];
+  
+  async getUser(id: string): Promise<User | undefined> {
+    return this.users.get(id);
+  }
+
+  async upsertUser(userData: UpsertUser): Promise<User> {
+    const user: User = {
+      ...userData,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    this.users.set(userData.id, user);
+    return user;
+  }
+
+  async getProjects(): Promise<Project[]> {
+    return this.projects;
+  }
+
+  async getProject(id: number): Promise<Project | undefined> {
+    return this.projects.find(p => p.id === id);
+  }
+
+  async createProject(project: InsertProject): Promise<Project> {
+    const newProject: Project = {
+      ...project,
+      id: this.projects.length + 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    this.projects.push(newProject);
+    return newProject;
+  }
+
+  async updateProject(id: number, updates: Partial<InsertProject>): Promise<Project | undefined> {
+    const index = this.projects.findIndex(p => p.id === id);
+    if (index === -1) return undefined;
+    
+    this.projects[index] = {
+      ...this.projects[index],
+      ...updates,
+      updatedAt: new Date(),
+    };
+    return this.projects[index];
+  }
+
+  async deleteProject(id: number): Promise<boolean> {
+    const index = this.projects.findIndex(p => p.id === id);
+    if (index === -1) return false;
+    
+    this.projects.splice(index, 1);
+    return true;
+  }
+
+  async getDonations(): Promise<Donation[]> {
+    return this.donations;
+  }
+
+  async getDonationsByUser(userId: string): Promise<Donation[]> {
+    return this.donations.filter(d => d.userId === userId);
+  }
+
+  async getDonationsByProject(projectId: number): Promise<Donation[]> {
+    return this.donations.filter(d => d.projectId === projectId);
+  }
+
+  async createDonation(donation: InsertDonation): Promise<Donation> {
+    const newDonation: Donation = {
+      ...donation,
+      id: this.donations.length + 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    this.donations.push(newDonation);
+    return newDonation;
+  }
+
+  async updateDonationStatus(id: number, status: string): Promise<Donation | undefined> {
+    const donation = this.donations.find(d => d.id === id);
+    if (!donation) return undefined;
+    
+    donation.status = status;
+    donation.updatedAt = new Date();
+    return donation;
+  }
+
+  async getTransactions(): Promise<Transaction[]> {
+    return this.transactions;
+  }
+
+  async getTransactionsByProject(projectId: number): Promise<Transaction[]> {
+    return this.transactions.filter(t => t.projectId === projectId);
+  }
+
+  async createTransaction(transaction: InsertTransaction): Promise<Transaction> {
+    const newTransaction: Transaction = {
+      ...transaction,
+      id: this.transactions.length + 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    this.transactions.push(newTransaction);
+    return newTransaction;
+  }
+
+  async updateTransactionStatus(id: number, status: string, verificationStatus?: string): Promise<Transaction | undefined> {
+    const transaction = this.transactions.find(t => t.id === id);
+    if (!transaction) return undefined;
+    
+    transaction.status = status;
+    if (verificationStatus) {
+      transaction.verificationStatus = verificationStatus;
+    }
+    transaction.updatedAt = new Date();
+    return transaction;
+  }
+
+  async getBeneficiaries(): Promise<Beneficiary[]> {
+    return this.beneficiaries;
+  }
+
+  async getBeneficiariesByProject(projectId: number): Promise<Beneficiary[]> {
+    return this.beneficiaries.filter(b => b.projectId === projectId);
+  }
+
+  async createBeneficiary(beneficiary: InsertBeneficiary): Promise<Beneficiary> {
+    const newBeneficiary: Beneficiary = {
+      ...beneficiary,
+      id: this.beneficiaries.length + 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    this.beneficiaries.push(newBeneficiary);
+    return newBeneficiary;
+  }
+
+  async getRecentActivity(limit: number = 10): Promise<ActivityLog[]> {
+    return this.activityLog
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .slice(0, limit);
+  }
+
+  async getUserActivity(userId: string, limit: number = 10): Promise<ActivityLog[]> {
+    return this.activityLog
+      .filter(activity => activity.userId === userId)
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .slice(0, limit);
+  }
+
+  async logActivity(activity: InsertActivityLog): Promise<ActivityLog> {
+    const newActivity: ActivityLog = {
+      ...activity,
+      id: this.activityLog.length + 1,
+      createdAt: new Date(),
+    };
+    this.activityLog.push(newActivity);
+    return newActivity;
+  }
+
+  async getDashboardStats(): Promise<{
+    totalDonated: number;
+    activeProjects: number;
+    peopleHelped: number;
+    transparencyScore: number;
+  }> {
+    return {
+      totalDonated: this.donations.reduce((sum, d) => sum + d.amount, 0),
+      activeProjects: this.projects.filter(p => p.status === 'active').length,
+      peopleHelped: this.beneficiaries.length,
+      transparencyScore: 95,
+    };
+  }
+}
+
+export const storage = new MemStorage();

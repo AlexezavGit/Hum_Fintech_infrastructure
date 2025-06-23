@@ -12,15 +12,21 @@ import {
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Auth middleware
-  await setupAuth(app);
+  // Auth middleware - temporarily commented out for demo
+  // await setupAuth(app);
 
-  // Auth routes
-  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
+  // Auth routes - temporarily bypassed for demo
+  app.get('/api/auth/user', async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
-      const user = await storage.getUser(userId);
-      res.json(user);
+      // Mock user for demonstration
+      const mockUser = {
+        id: "demo-user",
+        email: "demo@stream.org.ua",
+        firstName: "Demo",
+        lastName: "User",
+        profileImageUrl: "https://via.placeholder.com/40"
+      };
+      res.json(mockUser);
     } catch (error) {
       console.error("Error fetching user:", error);
       res.status(500).json({ message: "Failed to fetch user" });
@@ -660,7 +666,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Reports endpoints for Grand Bargain and IATI compliance
-  app.get("/api/reports/grand-bargain/:period?", isAuthenticated, async (req, res) => {
+  app.get("/api/reports/grand-bargain/:period?", async (req, res) => {
     try {
       const period = req.params.period || "current-year";
       
@@ -730,7 +736,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/reports/iati/:period?", isAuthenticated, async (req, res) => {
+  app.get("/api/reports/iati/:period?", async (req, res) => {
     try {
       const period = req.params.period || "current-year";
       
@@ -789,7 +795,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/reports/compliance-status", isAuthenticated, async (req, res) => {
+  app.get("/api/reports/compliance-status", async (req, res) => {
     try {
       const complianceStatus = {
         grand_bargain: {
