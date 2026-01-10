@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Heart, CreditCard, Shield } from "lucide-react";
+import { Heart, CreditCard, Shield, Search } from "lucide-react";
 import { isUnauthorizedError } from "@/lib/authUtils";
 import { apiRequest } from "@/lib/queryClient";
 import type { Project } from "@shared/schema";
@@ -28,6 +28,7 @@ export default function Donate() {
   const [message, setMessage] = useState("");
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [customAmount, setCustomAmount] = useState("");
+  const [utilizationSearch, setUtilizationSearch] = useState("");
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
@@ -121,6 +122,13 @@ export default function Donate() {
     });
   };
 
+  const handleUtilizationSearch = () => {
+    toast({
+      title: "Search Initiated",
+      description: `Checking utilization for ID: ${utilizationSearch}. Our system is processing your depersonalized request.`,
+    });
+  };
+
   if (isLoading || !isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -140,16 +148,16 @@ export default function Donate() {
         <main className="flex-1 p-8">
           {/* Header Section */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Make a Donation</h1>
-            <p className="text-gray-600 mt-1">Support humanitarian projects with transparent tracking</p>
+            <h1 className="text-2xl font-bold text-gray-900">Support Professional Care</h1>
+            <p className="text-gray-600 mt-1">Direct support for MHPSS initiatives with transparent tracking</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Project Selection */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 space-y-8">
               <Card>
                 <CardHeader>
-                  <CardTitle>Select a Project</CardTitle>
+                  <CardTitle>Select a Project or Clinic</CardTitle>
                 </CardHeader>
                 <CardContent>
                   {projectsLoading ? (
@@ -190,7 +198,7 @@ export default function Donate() {
                                 </Badge>
                                 {project.isVerified && (
                                   <Badge className="bg-green-100 text-green-800 text-xs">
-                                    Verified
+                                    Verified Clinic
                                   </Badge>
                                 )}
                               </div>
@@ -202,7 +210,7 @@ export default function Donate() {
                             
                             <div className="space-y-2">
                               <div className="flex justify-between text-sm">
-                                <span className="text-gray-600">Progress</span>
+                                <span className="text-gray-600">Funding Progress</span>
                                 <span className="font-medium">{Math.round(progress)}%</span>
                               </div>
                               <Progress value={progress} className="h-2" />
@@ -222,30 +230,55 @@ export default function Donate() {
                   ) : (
                     <div className="text-center py-8">
                       <Heart className="mx-auto h-12 w-12 text-gray-400" />
-                      <h3 className="mt-2 text-sm font-medium text-gray-900">No active projects</h3>
+                      <h3 className="mt-2 text-sm font-medium text-gray-900">No active MHPSS programs</h3>
                       <p className="mt-1 text-sm text-gray-500">
-                        There are currently no active projects accepting donations.
+                        There are currently no active programs accepting support.
                       </p>
                     </div>
                   )}
                 </CardContent>
               </Card>
+
+              {/* Utilization Search Feature */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Search className="w-5 h-5 mr-2 text-primary" />
+                    Track Your Impact
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-sm text-gray-600">
+                    Search for your donation utilization. You can also submit a depersonalized request for assistance or feedback if the system report was unsatisfactory.
+                  </p>
+                  <div className="flex space-x-2">
+                    <Input 
+                      placeholder="Enter Donation or Request ID" 
+                      value={utilizationSearch}
+                      onChange={(e) => setUtilizationSearch(e.target.value)}
+                    />
+                    <Button onClick={handleUtilizationSearch}>
+                      Track Impact
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
-            {/* Donation Form */}
+            {/* Support Form */}
             <div>
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Heart className="w-5 h-5 mr-2 text-primary" />
-                    Your Donation
+                    Support Amount
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {selectedProjectData && (
                     <div className="p-3 bg-blue-50 rounded-lg">
                       <p className="text-sm font-medium text-gray-900">
-                        Donating to: {selectedProjectData.title}
+                        Supporting: {selectedProjectData.title}
                       </p>
                       <p className="text-xs text-gray-600 mt-1">
                         {selectedProjectData.location}
@@ -301,7 +334,7 @@ export default function Donate() {
                     />
                   </div>
 
-                  {/* Anonymous Donation */}
+                  {/* Anonymous Support */}
                   <div className="flex items-center space-x-2">
                     <Checkbox
                       id="anonymous"
@@ -309,7 +342,7 @@ export default function Donate() {
                       onCheckedChange={setIsAnonymous}
                     />
                     <Label htmlFor="anonymous" className="text-sm text-gray-700">
-                      Make this donation anonymous
+                      Make this support anonymous
                     </Label>
                   </div>
 
@@ -317,14 +350,14 @@ export default function Donate() {
                   <div className="p-3 bg-green-50 rounded-lg">
                     <div className="flex items-center text-green-800 text-sm">
                       <Shield className="w-4 h-4 mr-2" />
-                      <span className="font-medium">Blockchain Protected</span>
+                      <span className="font-medium">Solana Protected</span>
                     </div>
                     <p className="text-xs text-green-700 mt-1">
-                      Your donation will be tracked on blockchain for complete transparency
+                      Co-financing tracked via Solana smart contracts for complete transparency
                     </p>
                   </div>
 
-                  {/* Donate Button */}
+                  {/* Support Button */}
                   <Button
                     onClick={handleDonate}
                     disabled={!selectedProject || !amount || Number(amount) <= 0 || donationMutation.isPending}
@@ -338,7 +371,7 @@ export default function Donate() {
                     ) : (
                       <>
                         <CreditCard className="w-4 h-4 mr-2" />
-                        Donate ${amount || "0"}
+                        Support ${amount || "0"}
                       </>
                     )}
                   </Button>

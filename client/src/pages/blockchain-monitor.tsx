@@ -71,94 +71,60 @@ export default function BlockchainMonitor() {
 
   const smartContracts = [
     {
-      id: "donation-tracker",
-      name: "Donation Tracker Contract",
-      address: "0x742b4c5f8e89d47e891bcb87dc12c7a5e3f8",
+      id: "co-financing-tracker",
+      name: "Co-financing Smart Contract",
+      address: "So1ana1111111111111111111111111111111111111",
       status: "active",
-      deployedAt: "2024-01-15",
+      deployedAt: "2026-01-05",
       interactions: 1847,
-      gasUsed: "2.4M",
+      gasUsed: "0.002 SOL",
       verified: true,
-      description: "Автоматичне відстеження та розподіл донацій з повною прозорістю"
+      description: "Automated tracking and distribution of psychological support funding with full transparency"
     },
     {
-      id: "resource-allocation",
-      name: "Resource Allocation Contract",
-      address: "0x9a8c7e3f2d1b4a6e8f9c0b2d4e7f1a3c5e8b",
+      id: "service-fee",
+      name: "Service Fee / Fee-for-Service Contract",
+      address: "So1ana2222222222222222222222222222222222222",
       status: "active",
-      deployedAt: "2024-01-12",
+      deployedAt: "2026-01-08",
       interactions: 956,
-      gasUsed: "1.8M",
+      gasUsed: "0.001 SOL",
       verified: true,
-      description: "Розумний розподіл гуманітарних ресурсів на основі пріоритетів"
+      description: "Managed payments for professional psychological services and trauma therapy"
     },
     {
-      id: "audit-trail",
-      name: "Audit Trail Contract",
-      address: "0x3c5e8b1a4d7f0c3e6b9a2d5f8c1e4b7a0d3f",
+      id: "mhgap-audit",
+      name: "mhGAP Audit Trail Contract",
+      address: "So1ana3333333333333333333333333333333333333",
       status: "active",
-      deployedAt: "2024-01-10",
+      deployedAt: "2026-01-10",
       interactions: 2341,
-      gasUsed: "3.1M",
+      gasUsed: "0.003 SOL",
       verified: true,
-      description: "Незмінний журнал аудиту всіх фінансових операцій"
+      description: "Immutable audit log of all clinical reporting based on mhGAP protocols"
     }
   ];
 
   const recentBlocks = [
     {
       height: networkStats.blockHeight,
-      hash: "0x2d4f8a9e1c3b7e5a8d2f4c9e7b1a5d8f3c6e9b2a",
-      timestamp: "2 хвилини тому",
+      hash: "SolanaBlockHeight_2d4f8a9e1c3b7e5a8d2f4c9e7b1a5d8f3c6e9b2a",
+      timestamp: "2 minutes ago",
       transactions: 47,
-      gasUsed: "12.8M",
-      validator: "Stream Validator 01"
-    },
-    {
-      height: networkStats.blockHeight - 1,
-      hash: "0x8f3c6e9b2a4d7f0c3e6b9a2d5f8c1e4b7a0d3f",
-      timestamp: "14 хвилин тому",
-      transactions: 52,
-      gasUsed: "13.2M",
-      validator: "Humanitarian Node 03"
-    },
-    {
-      height: networkStats.blockHeight - 2,
-      hash: "0x1e4b7a0d3f6c9e2a5d8f1c4b7e0a3d6f9c2e5b",
-      timestamp: "26 хвилин тому",
-      transactions: 39,
-      gasUsed: "11.4M",
-      validator: "Stream Validator 02"
+      gasUsed: "0.015 SOL",
+      validator: "FeelAgain Validator 01"
     }
   ];
 
   const transactionPool = [
     {
-      hash: "0x4f8c2e5b9a1d7f3c6e0b4a8d2f5c9e7b1a4d8f",
-      type: "Donation",
-      amount: "$2,450",
-      from: "0x3e8b...5f2a",
-      to: "Emergency Fund",
-      fee: "0.005 ETH",
+      hash: "SolanaTx_4f8c2e5b9a1d7f3c6e0b4a8d2f5c9e7b1a4d8f",
+      type: "MHPSS Payment",
+      amount: "2.5 SOL",
+      from: "Donor_3e8b...5f2a",
+      to: "Psychologist_Clinic_A",
+      fee: "0.000005 SOL",
       priority: "high"
-    },
-    {
-      hash: "0x9b2a5d8f1c4e7b0a3d6f9c2e5b8a1d4f7c0e3b",
-      type: "Resource Transfer",
-      amount: "Food Package #1847",
-      from: "Warehouse Kiev",
-      to: "Distribution Point A",
-      fee: "0.003 ETH",
-      priority: "medium"
-    },
-    {
-      hash: "0x7e0a3d6f9c2e5b8a1d4f7c0e3b6f9a2d5e8b1c",
-      type: "Verification",
-      amount: "Identity Check",
-      from: "Beneficiary System",
-      to: "Verification Node",
-      fee: "0.001 ETH",
-      priority: "low"
     }
   ];
 
@@ -178,9 +144,9 @@ export default function BlockchainMonitor() {
         <main className="flex-1 p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Blockchain Моніторинг</h1>
+            <h1 className="text-2xl font-bold text-gray-900">Blockchain Monitor</h1>
             <p className="text-gray-600 mt-1">
-              Hyperledger Fabric мережа для прозорого гуманітарного реагування
+              Solana Network for Transparent MHPSS Support Ecosystem
             </p>
           </div>
 

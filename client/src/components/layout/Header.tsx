@@ -1,3 +1,4 @@
+import logoPath from "@assets/feel-again-dots_PNG_1768054419574.png";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -8,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Heart, Bell, ChevronDown, LogOut, User, Settings } from "lucide-react";
+import { Bell, ChevronDown, LogOut, User, Settings } from "lucide-react";
 
 export default function Header() {
   const { user } = useAuth();
@@ -33,10 +34,8 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Heart className="text-white text-sm" />
-              </div>
-              <span className="text-xl font-bold text-gray-900">Stream</span>
+              <img src={logoPath} alt="Feel Again" className="h-8 w-8 object-contain" />
+              <span className="text-xl font-bold text-gray-900">Feel Again</span>
             </div>
           </div>
           

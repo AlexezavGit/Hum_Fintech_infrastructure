@@ -18,16 +18,15 @@ import {
 } from "lucide-react";
 
 const navigationItems = [
-  { href: "/", label: "Огляд", icon: BarChart3 },
-  { href: "/programs", label: "Програми", icon: Users },
+  { href: "/", label: "Overview", icon: BarChart3 },
+  { href: "/programs", label: "Funding Programs", icon: Users },
   { href: "/feel-again", label: "Feel Again", icon: HeartHandshake },
-  { href: "/projects", label: "Проекти", icon: FolderOpen },
-  { href: "/ai-analytics", label: "AI Аналітика", icon: Brain },
+  { href: "/projects", label: "Projects & Organizations", icon: FolderOpen },
+  { href: "/ai-analytics", label: "AI Analytics", icon: Brain },
   { href: "/blockchain-monitor", label: "Blockchain", icon: Blocks },
-  { href: "/efficiency-index", label: "CIE Індекс", icon: Calculator },
-  { href: "/donate", label: "Донати", icon: Heart },
-  { href: "/transparency", label: "Прозорість", icon: Shield },
-  { href: "/reports", label: "Звіти", icon: FileText },
+  { href: "/donate", label: "Donations", icon: Heart },
+  { href: "/transparency", label: "Transparency", icon: Shield },
+  { href: "/reports", label: "Reports", icon: FileText },
 ];
 
 export default function Sidebar() {

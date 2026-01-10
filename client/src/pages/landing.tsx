@@ -1,3 +1,4 @@
+import logoPath from "@assets/feel-again-dots_PNG_1768054419574.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Shield, Users, TrendingUp } from "lucide-react";
@@ -10,10 +11,8 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Heart className="text-white text-sm" />
-              </div>
-              <span className="text-xl font-bold text-gray-900">Stream</span>
+              <img src={logoPath} alt="Feel Again" className="h-8 w-8 object-contain" />
+              <span className="text-xl font-bold text-gray-900">Feel Again</span>
             </div>
             <Button 
               onClick={() => window.location.href = '/api/login'}
@@ -30,12 +29,11 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              Stream: Цифровий Міст Гуманітарної Взаємодії
+              Feel Again: Digital Bridge for Psychological Support
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Технологічна платформа для керованої та підзвітної допомоги, координації зусиль 
-              та супроводу діяльності акторів різних рівнів реагування. Прозора дистрибуція ресурсів 
-              та краудфандинг з повним відстеженням на блокчейні.
+              Technological platform for dignified and equitable access to trauma-informed psychological care.
+              Supporting beneficiaries through professional guidance and transparent resource allocation.
             </p>
             <div className="flex justify-center space-x-4">
               <Button 
@@ -43,14 +41,7 @@ export default function Landing() {
                 onClick={() => window.location.href = '/api/login'}
                 className="bg-primary hover:bg-blue-700 text-white px-8 py-3"
               >
-                Start Donating
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-primary text-primary hover:bg-blue-50 px-8 py-3"
-              >
-                Learn More
+                Get Started
               </Button>
             </div>
           </div>
@@ -62,10 +53,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Чому Stream?
+              Why Feel Again?
             </h2>
             <p className="text-lg text-gray-600">
-              Наша платформа об'єднує передові технології з гуманітарною місією для максимальної ефективності
+              Integrating professional MHPSS standards with transparent technology
             </p>
           </div>
 
@@ -76,10 +67,10 @@ export default function Landing() {
                   <Shield className="text-primary text-lg" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Блокчейн Безпека
+                  Solana Security
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Кожна транзакція записується в блокчейн для незмінної прозорості
+                  Transparent co-financing through Solana smart contracts
                 </p>
               </CardContent>
             </Card>
@@ -90,10 +81,10 @@ export default function Landing() {
                   <TrendingUp className="text-secondary text-lg" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Відстеження в Реальному Часі
+                  mhGAP Standards
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Відстежуйте свої донації від внеску до фінального розподілу
+                  Automated reporting based on international clinical protocols
                 </p>
               </CardContent>
             </Card>
@@ -104,10 +95,10 @@ export default function Landing() {
                   <Users className="text-accent text-lg" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Verified Recipients
+                  Unified Environment
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Biometric verification ensures aid reaches genuine beneficiaries
+                  Connecting clinical facilities, NGOs, and private practice
                 </p>
               </CardContent>
             </Card>
@@ -118,10 +109,10 @@ export default function Landing() {
                   <Heart className="text-warning text-lg" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Direct Impact
+                  Dignified Support
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  See exactly how your contribution is making a difference
+                  Focus on long-term trauma recovery and professional care
                 </p>
               </CardContent>
             </Card>
@@ -133,17 +124,17 @@ export default function Landing() {
       <div className="bg-primary py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Make a Transparent Impact?
+            Ready to Support Professional Care?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join thousands of donors who trust HumanAid for transparent humanitarian giving
+            Join the ecosystem providing trauma-informed psychological assistance
           </p>
           <Button 
             size="lg"
             onClick={() => window.location.href = '/api/login'}
             className="bg-white text-primary hover:bg-gray-100 px-8 py-3"
           >
-            Get Started Today
+            Join Ecosystem
           </Button>
         </div>
       </div>
@@ -152,13 +143,11 @@ export default function Landing() {
       <footer className="bg-gray-800 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center space-x-2 mb-8">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <Heart className="text-white text-sm" />
-            </div>
-            <span className="text-xl font-bold text-white">HumanAid</span>
+            <img src={logoPath} alt="Feel Again" className="h-8 w-8 object-contain brightness-0 invert" />
+            <span className="text-xl font-bold text-white">Feel Again</span>
           </div>
           <p className="text-center text-gray-400">
-            © 2024 HumanAid. Transparent humanitarian resource distribution platform.
+            © 2026 Feel Again. Professional MHPSS Ecosystem and Transparency Platform.
           </p>
         </div>
       </footer>

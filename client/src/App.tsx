@@ -31,7 +31,6 @@ function Router() {
           <Route path="/programs" component={Programs} />
           <Route path="/ai-analytics" component={AIAnalytics} />
           <Route path="/blockchain-monitor" component={BlockchainMonitor} />
-          <Route path="/efficiency-index" component={EfficiencyIndex} />
           <Route path="/feel-again" component={FeelAgainProgram} />
           <Route path="/donate" component={Donate} />
           <Route path="/transparency" component={Transparency} />
