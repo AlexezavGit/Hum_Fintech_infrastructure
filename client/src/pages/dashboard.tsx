@@ -22,7 +22,8 @@ import {
   Heart,
   Calculator,
   Globe,
-  Zap
+  Zap,
+  Stethoscope
 } from "lucide-react";
 import { isUnauthorizedError } from "@/lib/authUtils";
 
@@ -87,7 +88,7 @@ export default function Dashboard() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div className="text-center">
                     <div className="flex items-center justify-center mb-2">
-                      <Calculator className="w-8 h-8 text-purple-500 mr-2" />
+                      <Stethoscope className="w-8 h-8 text-purple-500 mr-2" />
                       <div>
                         <p className="text-sm font-medium text-gray-600">MHPSS Support Index</p>
                         <p className="text-3xl font-bold text-purple-600">
