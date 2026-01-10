@@ -12,7 +12,7 @@ import {
 import { Bell, ChevronDown, LogOut, User, Settings } from "lucide-react";
 
 export default function Header() {
-  const { user } = useAuth();
+  const { user } = useAuth() as { user: any };
 
   const getInitials = (firstName?: string, lastName?: string) => {
     if (!firstName && !lastName) return "U";

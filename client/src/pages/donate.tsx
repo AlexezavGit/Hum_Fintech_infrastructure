@@ -216,10 +216,10 @@ export default function Donate() {
                               <Progress value={progress} className="h-2" />
                               <div className="flex justify-between text-sm">
                                 <span className="text-gray-900 font-medium">
-                                  ${Number(project.currentAmount).toLocaleString()}
+                                  ${(typeof project.currentAmount === 'string' ? parseFloat(project.currentAmount) : project.currentAmount).toLocaleString()}
                                 </span>
                                 <span className="text-gray-600">
-                                  of ${Number(project.targetAmount).toLocaleString()}
+                                  of ${(typeof project.targetAmount === 'string' ? parseFloat(project.targetAmount) : project.targetAmount).toLocaleString()}
                                 </span>
                               </div>
                             </div>
@@ -339,7 +339,7 @@ export default function Donate() {
                     <Checkbox
                       id="anonymous"
                       checked={isAnonymous}
-                      onCheckedChange={setIsAnonymous}
+                      onCheckedChange={(checked) => setIsAnonymous(checked === true)}
                     />
                     <Label htmlFor="anonymous" className="text-sm text-gray-700">
                       Make this support anonymous

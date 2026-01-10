@@ -66,8 +66,8 @@ export default function Dashboard() {
         <main className="flex-1 p-8">
           {/* Header Section */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Stream Platform Dashboard</h1>
-            <p className="text-gray-600 mt-1">Real-time humanitarian aid coordination and transparency system</p>
+            <h1 className="text-2xl font-bold text-gray-900">Feel Again Dashboard</h1>
+            <p className="text-gray-600 mt-1">Dignified psychological support ecosystem. Professional MHPSS care for trauma recovery.</p>
           </div>
 
           {/* Live Stream Metrics - Top Priority */}
@@ -76,7 +76,7 @@ export default function Dashboard() {
               <CardHeader>
                 <CardTitle className="flex items-center text-2xl">
                   <Activity className="w-6 h-6 mr-3 text-primary" />
-                  HEI Stream Live Metrics
+                  Feel Again Live Metrics
                   <Badge className="ml-3 bg-green-100 text-green-800 animate-pulse">
                     <Zap className="w-3 h-3 mr-1" />
                     Live
@@ -89,7 +89,7 @@ export default function Dashboard() {
                     <div className="flex items-center justify-center mb-2">
                       <Calculator className="w-8 h-8 text-purple-500 mr-2" />
                       <div>
-                        <p className="text-sm font-medium text-gray-600">Гуманітарний Композитний Індекс</p>
+                        <p className="text-sm font-medium text-gray-600">MHPSS Support Index</p>
                         <p className="text-3xl font-bold text-purple-600">
                           {liveMetrics?.humanitarian_composite_index?.toFixed(1) || "87.4"}
                         </p>
@@ -104,12 +104,12 @@ export default function Dashboard() {
                     <div className="flex items-center justify-center mb-2">
                       <Users className="w-8 h-8 text-blue-500 mr-2" />
                       <div>
-                        <p className="text-sm font-medium text-gray-600">Обслуговувані Бенефіціари</p>
+                        <p className="text-sm font-medium text-gray-600">Beneficiaries Supported</p>
                         <p className="text-3xl font-bold text-blue-600 tabular-nums">
                           {liveMetrics?.total_beneficiaries_served?.toLocaleString() || "12,847"}
                         </p>
                         <p className="text-xs text-green-600 mt-1">
-                          +{Math.floor(Math.random() * 10) + 5} за останню годину
+                          +{Math.floor(Math.random() * 10) + 5} in the last hour
                         </p>
                       </div>
                     </div>
@@ -119,12 +119,12 @@ export default function Dashboard() {
                     <div className="flex items-center justify-center mb-2">
                       <Building className="w-8 h-8 text-orange-500 mr-2" />
                       <div>
-                        <p className="text-sm font-medium text-gray-600">Організації у Stream</p>
+                        <p className="text-sm font-medium text-gray-600">Participating Organizations</p>
                         <p className="text-3xl font-bold text-orange-600 tabular-nums">
                           {liveMetrics?.organizations_using_stream || "47"}
                         </p>
                         <p className="text-xs text-blue-600 mt-1">
-                          Активних на платформі
+                          Active in Ecosystem
                         </p>
                       </div>
                     </div>
@@ -134,12 +134,12 @@ export default function Dashboard() {
                     <div className="flex items-center justify-center mb-2">
                       <DollarSign className="w-8 h-8 text-green-500 mr-2" />
                       <div>
-                        <p className="text-sm font-medium text-gray-600">Обсяг Наданої Допомоги</p>
+                        <p className="text-sm font-medium text-gray-600">Total Support Volume</p>
                         <p className="text-3xl font-bold text-green-600 tabular-nums">
                           ${(liveMetrics?.total_aid_volume || 0).toLocaleString()}
                         </p>
                         <p className="text-xs text-purple-600 mt-1">
-                          Real-time blockchain verified
+                          Verified on Solana
                         </p>
                       </div>
                     </div>
@@ -150,7 +150,7 @@ export default function Dashboard() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 pt-6 border-t">
                   <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                     <div>
-                      <p className="text-sm text-gray-600">Feel Again - Активні</p>
+                      <p className="text-sm text-gray-600">Feel Again - Active Sessions</p>
                       <p className="text-xl font-bold text-pink-600">
                         {liveMetrics?.feel_again?.active_beneficiaries || "2,847"}
                       </p>
@@ -160,7 +160,7 @@ export default function Dashboard() {
                   
                   <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                     <div>
-                      <p className="text-sm text-gray-600">Blockchain Верифікації</p>
+                      <p className="text-sm text-gray-600">Clinical Verifications</p>
                       <p className="text-xl font-bold text-indigo-600">
                         {liveMetrics?.blockchain_verifications || "247"}
                       </p>
@@ -170,7 +170,7 @@ export default function Dashboard() {
                   
                   <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                     <div>
-                      <p className="text-sm text-gray-600">Real-time Транзакції</p>
+                      <p className="text-sm text-gray-600">Real-time Transactions</p>
                       <p className="text-xl font-bold text-teal-600">
                         {liveMetrics?.real_time_transactions || "0"}
                       </p>
@@ -180,9 +180,9 @@ export default function Dashboard() {
                 </div>
 
                 <div className="mt-4 text-center text-xs text-gray-500">
-                  Останнє оновлення: {liveMetrics?.last_updated ? 
-                    new Date(liveMetrics.last_updated).toLocaleTimeString('uk-UA') : 
-                    new Date().toLocaleTimeString('uk-UA')
+                  Last updated: {liveMetrics?.last_updated ? 
+                    new Date(liveMetrics.last_updated).toLocaleTimeString('en-US') : 
+                    new Date().toLocaleTimeString('en-US')
                   }
                 </div>
               </CardContent>
