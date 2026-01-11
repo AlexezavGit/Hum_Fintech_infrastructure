@@ -1,0 +1,51 @@
+Чи можемо сторінку  Оverview та Transparency , ті показники що там є майже одні і тіж самі і носять довідковий характер, 
+
+А чи можливо збільшити логотип на фронтальному інтерфейсі? 
+
+Чомусь на сторінці звітів ліве меню що є на всіх сторінках знникає, це був задум, чи потрібно його поовернутиґ або створити?
+
+Ось опис програми останній щоб зробити апдейт того що є, і за ідеєю розділ Feel Again повинен бутии першим.
+
+
+Це розроблено як комплексний автоматичний скорінг гуманітарних ініціатив на сторінку для донорів.
+
+Автоматичний скоринг за параметрами:
+javascriptconst HumanitarianScoring = {
+  localization_score: 0-100,    // % direct to L/NNGOs
+  efficiency_score: 0-100,      // admin costs inverse
+  impact_score: 0-100,          // beneficiaries served/dollar
+  transparency_score: 0-100,     // real-time visibility
+  community_score: 0-100,        // co-financing percentage
+  
+  auto_invest_threshold: 75,    // Auto-approve if score >75
+  manual_review: 50-74,          // Human decision needed
+  reject: <50                    // Auto-decline
+}
+```
+
+### Dashboard Mockup Vision:
+```
+LIVE HUMANITARIAN CONTROL CENTER
+═══════════════════════════════════════════════════════
+│ GRAND BARGAIN ACHIEVEMENT METRICS          [LIVE] 🟢 │
+├─────────────────────────────────────────────────────┤
+│ Localization:          27% ████████░░ [Target: 25%] ✓│
+│ Quality Funding:       36mo ████████ [Target: 24mo] ✓│
+│ Participation:         87% █████████░ [Target: 80%] ✓│
+│ Admin Overhead:        8.5% ██░░░░░░░ [vs 30% avg]  │
+│                                                      │
+│ ACTIVE NOW: 127 sessions | €6,350 flowing           │
+│ TODAY: 1,247 beneficiaries | €62,350 distributed    │
+│ THIS MONTH: 37,410 served | €1.87M efficiency gain  │
+└─────────────────────────────────────────────────────┘
+
+SCORING QUEUE - Auto-Investment Decisions
+┌─────────────────────────────────────────┐
+│ Initiative      Score  Status   Action  │
+│ Kharkiv PTSD    91/100 ✓ AUTO  Invest  │
+│ Mariupol Child  73/100 ⚡ REVIEW Pending │
+│ Odesa Veterans  45/100 ✗ REJECT Low ROI │
+└─────────────────────────────────────────┘
+```
+Питання чи ми можемо обєднувати проекти які створені тут?
+ґмаю на увазі що три проєкти створені тут: Healing bridge, yety tracker та цей проект це частини одного і того ж самого цифрового ресурсу  який обслуговує гуманітарну програму FeeL Again?

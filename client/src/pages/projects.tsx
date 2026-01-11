@@ -73,14 +73,25 @@ export default function Projects() {
           {/* Header Section */}
           <div className="mb-8 flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Projects</h1>
-              <p className="text-gray-600 mt-1">Manage and track humanitarian aid projects</p>
+              <h1 className="text-2xl font-bold text-gray-900">Projects & Organizations</h1>
+              <p className="text-gray-600 mt-1">Provider organization projects and donor coordination platform</p>
             </div>
             <Button className="bg-secondary hover:bg-green-700 text-white">
               <Plus className="w-4 h-4 mr-2" />
-              Create Project
+              Submit Project
             </Button>
           </div>
+
+          {/* Coordination Alert */}
+          <Card className="mb-8 bg-blue-50 border-blue-200">
+            <CardContent className="p-4 flex items-center space-x-4">
+              <Users className="w-6 h-6 text-primary" />
+              <p className="text-sm text-gray-700">
+                This section showcases specialized MHPSS projects from certified organizations. 
+                Donors can identify specific opportunities to support provider capabilities and direct beneficiary pipelines.
+              </p>
+            </CardContent>
+          </Card>
 
           {/* Projects Grid */}
           {projectsLoading ? (

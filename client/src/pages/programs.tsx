@@ -50,57 +50,57 @@ export default function Programs() {
   // Showcase featured humanitarian programs based on Stream concept
   const featuredPrograms = [
     {
-      id: "stream-again",
-      title: "AGAIN - Програма Психологічної Реабілітації",
-      description: "Ефективна частина гуманітарного реагування для досягнення сталості розвитку ринку надавачів послуг з психологічної реабілітації",
-      category: "Психологічна підтримка",
-      location: "Україна",
+      id: "feel-again-zhytomyr",
+      title: "MHPSS Support for 250 Adolescents - Zhytomyr Region",
+      description: "Direct donor-funded program providing professional psychological care for adolescents in Zhytomyr region. Professionals can join this program to provide specialized services.",
+      category: "Psychological Support",
+      location: "Zhytomyr Region",
       targetAmount: 250000,
       currentAmount: 187500,
-      beneficiaries: 1250,
+      beneficiaries: 250,
       status: "active",
       isVerified: true,
       objectives: [
-        "Концентрувати гуманітарні ресурси",
-        "Агрегувати надавачів послуг",
-        "Імплементувати світові стандарти",
-        "Залучати кращі світові практики"
+        "Provide specialized trauma therapy",
+        "Engage certified MHPSS providers",
+        "Implement international clinical standards",
+        "Ensure transparent funding distribution"
       ]
     },
     {
-      id: "emergency-response",
-      title: "Швидке Реагування - Гуманітарна Допомога",
-      description: "Децентралізована мережа швидкого реагування для надання невідкладної допомоги постраждалому населенню",
-      category: "Швидке реагування",
-      location: "Київська, Харківська, Донецька області",
+      id: "feel-again-kharkiv",
+      title: "Crisis Intervention Program - Kharkiv Region",
+      description: "Emergency psychological response for displaced families. This program facilitates coordination between corporate philanthropists and local MHPSS actors.",
+      category: "Crisis Intervention",
+      location: "Kharkiv Region",
       targetAmount: 500000,
       currentAmount: 342000,
       beneficiaries: 3200,
       status: "active",
       isVerified: true,
       objectives: [
-        "Забезпечення продуктами харчування",
-        "Медична допомога",
-        "Тимчасове житло",
-        "Психологічна підтримка"
+        "Immediate crisis stabilization",
+        "Mobile psychological teams",
+        "Corporate co-financing integration",
+        "mhGAP-compliant reporting"
       ]
     },
     {
-      id: "local-coordination",
-      title: "Локальна Координація Акторів",
-      description: "Об'єднання зусиль локальних та міжнародних організацій для підвищення ефективності гуманітарного реагування",
-      category: "Координація",
-      location: "Вся Україна",
+      id: "feel-again-nationwide",
+      title: "National Professional Coordination Network",
+      description: "MHPSS digital coordination platform connecting humanitarian actors, private donors, and local funds for co-financing initiatives.",
+      category: "Coordination",
+      location: "Ukraine - Nationwide",
       targetAmount: 150000,
       currentAmount: 98000,
       beneficiaries: 850,
       status: "active",
       isVerified: true,
       objectives: [
-        "Координація між НДО",
-        "Уникнення дублювання",
-        "Підвищення прозорості",
-        "Спільне планування"
+        "NGO & Donor coordination",
+        "MHPSS resource optimization",
+        "Transparent co-financing scoring",
+        "Joint planning with local funds"
       ]
     }
   ];
@@ -121,19 +121,19 @@ export default function Programs() {
         <main className="flex-1 p-8">
           {/* Header Section */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Гуманітарні Програми у Потоці</h1>
+            <h1 className="text-2xl font-bold text-gray-900">Funding Programs</h1>
             <p className="text-gray-600 mt-1">
-              Цифровий супровід програм з прозорим відстеженням та координацією зусиль
+              Digital coordination for donor-funded MHPSS initiatives and co-financing opportunities
             </p>
           </div>
 
-          {/* Stream Statistics */}
+          {/* Statistics */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <Card>
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Активних Програм</p>
+                    <p className="text-sm font-medium text-gray-600">Active Programs</p>
                     <p className="text-2xl font-bold text-gray-900">47</p>
                   </div>
                   <Heart className="h-8 w-8 text-secondary" />
@@ -145,7 +145,7 @@ export default function Programs() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Залучених Акторів</p>
+                    <p className="text-sm font-medium text-gray-600">Registered Actors</p>
                     <p className="text-2xl font-bold text-gray-900">156</p>
                   </div>
                   <Users className="h-8 w-8 text-primary" />
@@ -157,7 +157,7 @@ export default function Programs() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Прозорість</p>
+                    <p className="text-sm font-medium text-gray-600">Transparency Rate</p>
                     <p className="text-2xl font-bold text-gray-900">98.5%</p>
                   </div>
                   <Shield className="h-8 w-8 text-warning" />
@@ -169,7 +169,7 @@ export default function Programs() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Ефективність</p>
+                    <p className="text-sm font-medium text-gray-600">Coordination Efficiency</p>
                     <p className="text-2xl font-bold text-gray-900">92%</p>
                   </div>
                   <TrendingUp className="h-8 w-8 text-accent" />
@@ -180,7 +180,7 @@ export default function Programs() {
 
           {/* Featured Programs */}
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Рекомендовані Програми</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">MHPSS Funding Opportunities</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {featuredPrograms.map((program) => {
                 const progress = (program.currentAmount / program.targetAmount) * 100;
@@ -199,7 +199,7 @@ export default function Programs() {
                             </Badge>
                             {program.isVerified && (
                               <Badge className="bg-green-100 text-green-800 text-xs">
-                                Верифіковано
+                                Verified Program
                               </Badge>
                             )}
                           </div>
@@ -220,7 +220,7 @@ export default function Programs() {
                       <div className="space-y-4">
                         <div>
                           <div className="flex justify-between text-sm mb-2">
-                            <span className="text-gray-600">Прогрес фінансування</span>
+                            <span className="text-gray-600">Funding Progress</span>
                             <span className="font-medium">{Math.round(progress)}%</span>
                           </div>
                           <Progress value={progress} className="h-2" />
@@ -229,7 +229,7 @@ export default function Programs() {
                               ${program.currentAmount.toLocaleString()}
                             </span>
                             <span className="text-gray-600">
-                              з ${program.targetAmount.toLocaleString()}
+                              of ${program.targetAmount.toLocaleString()}
                             </span>
                           </div>
                         </div>
@@ -237,17 +237,17 @@ export default function Programs() {
                         <div className="flex items-center justify-between text-sm">
                           <div className="flex items-center text-gray-600">
                             <Users className="w-4 h-4 mr-1" />
-                            {program.beneficiaries.toLocaleString()} отримувачів
+                            {program.beneficiaries.toLocaleString()} beneficiaries
                           </div>
                           <Badge className="bg-blue-100 text-blue-800">
-                            {program.status === "active" ? "Активна" : "Завершена"}
+                            {program.status === "active" ? "Active" : "Completed"}
                           </Badge>
                         </div>
 
                         <Separator />
 
                         <div>
-                          <h4 className="text-sm font-medium text-gray-900 mb-2">Ключові цілі:</h4>
+                          <h4 className="text-sm font-medium text-gray-900 mb-2">Key Objectives:</h4>
                           <ul className="space-y-1">
                             {program.objectives.slice(0, 2).map((objective, index) => (
                               <li key={index} className="text-xs text-gray-600 flex items-center">
@@ -260,11 +260,11 @@ export default function Programs() {
 
                         <div className="flex space-x-2">
                           <Button size="sm" className="flex-1 bg-secondary hover:bg-green-700 text-white">
-                            Підтримати
+                            Join Program
                           </Button>
                           <Button size="sm" variant="outline" className="flex items-center">
                             <FileText className="w-3 h-3 mr-1" />
-                            Деталі
+                            Details
                           </Button>
                         </div>
                       </div>
@@ -275,32 +275,32 @@ export default function Programs() {
             </div>
           </div>
 
-          {/* Platform Benefits Section */}
+          {/* Coordination Benefits Section */}
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Shield className="w-5 h-5 mr-2 text-primary" />
-                Переваги Платформи Stream
+                MHPSS Digital Coordination
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="space-y-2">
-                  <h4 className="font-medium text-gray-900">Цифрова Довіра</h4>
+                  <h4 className="font-medium text-gray-900">Co-financing Integration</h4>
                   <p className="text-sm text-gray-600">
-                    Блокчейн-технології забезпечують повну прозорість та незмінність всіх транзакцій
+                    Connect with corporate philanthropists, private donors, and local funds for joint initiatives
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <h4 className="font-medium text-gray-900">Координація Зусиль</h4>
+                  <h4 className="font-medium text-gray-900">Professional Selection</h4>
                   <p className="text-sm text-gray-600">
-                    Уникнення дублювання та підвищення ефективності через єдину систему координації
+                    Providers can identify and select target beneficiary groups for specialized MHPSS services
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <h4 className="font-medium text-gray-900">Локальна Участь</h4>
+                  <h4 className="font-medium text-gray-900">Transparent Allocation</h4>
                   <p className="text-sm text-gray-600">
-                    Залучення локальних акторів для максимальної влучності адресації допомоги
+                    Real-time monitoring of resource distribution aligned with international clinical standards
                   </p>
                 </div>
               </div>
@@ -313,19 +313,19 @@ export default function Programs() {
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Приєднуйтесь до Мережі Stream
+                    Join the Feel Again Network
                   </h3>
                   <p className="text-gray-600">
-                    Станьте частиною децентралізованої мережі гуманітарного реагування
+                    Connect as a donor, practitioner, or humanitarian actor to coordinate specialized support
                   </p>
                 </div>
                 <div className="flex space-x-3">
                   <Button variant="outline">
-                    Дізнатися більше
+                    Learn More
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
                   <Button className="bg-secondary hover:bg-green-700 text-white">
-                    Створити Програму
+                    Create Funding Program
                     <ChevronRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
