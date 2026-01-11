@@ -14,7 +14,8 @@ import {
   Brain,
   Blocks,
   Calculator,
-  HeartHandshake
+  HeartHandshake,
+  ShieldCheck
 } from "lucide-react";
 
 const navigationItems = [

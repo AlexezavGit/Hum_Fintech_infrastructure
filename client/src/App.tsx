@@ -9,8 +9,7 @@ import Landing from "@/pages/landing";
 import Dashboard from "@/pages/dashboard";
 import Projects from "@/pages/projects";
 import Programs from "@/pages/programs";
-import AIAnalytics from "@/pages/ai-analytics";
-import BlockchainMonitor from "@/pages/blockchain-monitor";
+import MonitoringControl from "@/pages/monitoring-control";
 import EfficiencyIndex from "@/pages/efficiency-index";
 import FeelAgainProgram from "@/pages/feel-again-program";
 import Donate from "@/pages/donate";
@@ -29,8 +28,7 @@ function Router() {
           <Route path="/" component={Dashboard} />
           <Route path="/projects" component={Projects} />
           <Route path="/programs" component={Programs} />
-          <Route path="/ai-analytics" component={AIAnalytics} />
-          <Route path="/blockchain-monitor" component={BlockchainMonitor} />
+          <Route path="/monitoring-control" component={MonitoringControl} />
           <Route path="/feel-again" component={FeelAgainProgram} />
           <Route path="/donate" component={Donate} />
           <Route path="/transparency" component={Transparency} />
