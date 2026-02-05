@@ -28,7 +28,8 @@ import {
   Cpu,
   Blocks,
   ShieldCheck,
-  Search
+  Search,
+  LayoutDashboard
 } from "lucide-react";
 import { isUnauthorizedError } from "@/lib/authUtils";
 
@@ -194,7 +195,74 @@ export default function MonitoringControl() {
             </TabsList>
 
             <TabsContent value="ai-analytics">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+              {/* Monitoring and Automation Section */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 text-left">
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="text-left">
+                        <p className="text-sm font-medium text-gray-600">Detected Anomalies</p>
+                        <p className="text-2xl font-bold text-red-600">{realTimeData.anomaliesDetected}</p>
+                        <div className="flex items-center mt-2">
+                          <Activity className="w-4 h-4 text-red-500 mr-1" />
+                          <span className="text-xs text-red-500">Real-time</span>
+                        </div>
+                      </div>
+                      <AlertTriangle className="h-8 w-8 text-red-500" />
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="text-left">
+                        <p className="text-sm font-medium text-gray-600">Processed Orders</p>
+                        <p className="text-2xl font-bold text-blue-600">{realTimeData.transactionsProcessed.toLocaleString()}</p>
+                        <div className="flex items-center mt-2">
+                          <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
+                          <span className="text-xs text-green-500">+5.3% hourly</span>
+                        </div>
+                      </div>
+                      <BarChart3 className="h-8 w-8 text-blue-500" />
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="text-left">
+                        <p className="text-sm font-medium text-gray-600">Risk Score</p>
+                        <p className="text-2xl font-bold text-yellow-600">{realTimeData.riskScore.toFixed(1)}%</p>
+                        <div className="flex items-center mt-2">
+                          <Shield className="w-4 h-4 text-yellow-500 mr-1" />
+                          <span className="text-xs text-yellow-500">Moderate</span>
+                        </div>
+                      </div>
+                      <Eye className="h-8 w-8 text-yellow-500" />
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="text-left">
+                        <p className="text-sm font-medium text-gray-600">Automation Rate</p>
+                        <p className="text-2xl font-bold text-green-600">{realTimeData.automationRate.toFixed(1)}%</p>
+                        <div className="flex items-center mt-2">
+                          <Zap className="w-4 h-4 text-green-500 mr-1" />
+                          <span className="text-xs text-green-500">High efficiency</span>
+                        </div>
+                      </div>
+                      <Bot className="h-8 w-8 text-green-500" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 text-left">
                 {aiModules.map((module) => (
                   <Card key={module.id}>
                     <CardHeader className="pb-2">
@@ -216,6 +284,21 @@ export default function MonitoringControl() {
                           <span className="font-medium">{module.accuracy}%</span>
                         </div>
                         <Progress value={module.accuracy} className="h-1.5" />
+                        <div className="flex items-center justify-between text-xs text-gray-500 mt-2">
+                          <div className="flex items-center">
+                            <Clock className="w-3 h-3 mr-1" />
+                            {module.lastUpdate}
+                          </div>
+                          {module.alerts > 0 && (
+                            <Badge variant="destructive" className="text-[10px] px-1.5 py-0">
+                              {module.alerts} Alerts
+                            </Badge>
+                          )}
+                        </div>
+                        <Button size="sm" variant="outline" className="w-full mt-2">
+                          <Cpu className="w-4 h-4 mr-2" />
+                          Configure Model
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -227,11 +310,24 @@ export default function MonitoringControl() {
                 {rpaAgents.map((agent) => (
                   <Card key={agent.id}>
                     <CardContent className="pt-6">
-                      <Bot className="w-6 h-6 text-secondary mb-2" />
-                      <h4 className="font-medium text-sm mb-1">{agent.name}</h4>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-gray-500">Tasks: {agent.tasksCompleted}</span>
-                        <Badge variant="outline" className="text-[10px] uppercase">{agent.status}</Badge>
+                      <div className="flex items-center justify-between mb-4">
+                        <Bot className="w-6 h-6 text-secondary" />
+                        <Badge variant="outline" className="text-[10px] uppercase text-green-600 border-green-200">
+                          {agent.status}
+                        </Badge>
+                      </div>
+                      <h4 className="font-semibold text-sm mb-1">{agent.name}</h4>
+                      <p className="text-xs text-gray-500 mb-4 line-clamp-2">{agent.description}</p>
+                      <div className="space-y-3">
+                        <div className="flex justify-between text-xs text-gray-600">
+                          <span>Tasks Completed</span>
+                          <span className="font-bold">{agent.tasksCompleted.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between text-xs text-gray-600 mb-1">
+                          <span>Efficiency</span>
+                          <span>{agent.efficiency}%</span>
+                        </div>
+                        <Progress value={agent.efficiency} className="h-1" />
                       </div>
                     </CardContent>
                   </Card>
@@ -252,19 +348,20 @@ export default function MonitoringControl() {
                     <CardContent>
                       <div className="space-y-4">
                         <div className="grid grid-cols-2 gap-4">
-                          <div className="p-3 bg-gray-50 rounded-lg">
-                            <p className="text-xs text-gray-500">Transactions</p>
+                          <div className="p-3 bg-gray-50 rounded-lg border border-gray-100">
+                            <p className="text-xs text-gray-500 mb-1">Transactions</p>
                             <p className="text-xl font-bold">{contract.transactions}</p>
                           </div>
-                          <div className="p-3 bg-gray-50 rounded-lg">
-                            <p className="text-xs text-gray-500">Volume</p>
+                          <div className="p-3 bg-gray-50 rounded-lg border border-gray-100">
+                            <p className="text-xs text-gray-500 mb-1">Volume</p>
                             <p className="text-xl font-bold">{contract.volume}</p>
                           </div>
                         </div>
-                        <div className="flex items-center text-sm text-green-600">
+                        <div className="flex items-center text-sm text-green-600 bg-green-50 p-2 rounded-md">
                           <ShieldCheck className="w-4 h-4 mr-1" />
                           Solana Network Verified
                         </div>
+                        <Button variant="outline" size="sm" className="w-full">View on Explorer</Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -277,21 +374,39 @@ export default function MonitoringControl() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <AlertTriangle className="w-5 h-5 mr-2 text-red-500" />
-                    Detected Anomalies (Real-time)
+                    Detected Anomalies (Real-time Audit)
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <Alert variant="destructive">
+                    <Alert variant="destructive" className="border-l-4">
                       <AlertTriangle className="h-4 w-4" />
                       <AlertDescription>
-                        <strong>Suspicious MHPSS Order Volume:</strong> Unusual spike in adolescent support requests from single IP range. Confidence: 94.2%
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <span className="font-bold block">Suspicious MHPSS Order Volume</span>
+                            Unusual spike in adolescent support requests from single IP range in Zhytomyr region. 
+                            <span className="block mt-1 text-xs opacity-80">Confidence: 94.2% | Severity: High</span>
+                          </div>
+                          <div className="flex space-x-2">
+                            <Button size="sm" variant="outline" className="h-7 text-xs">Details</Button>
+                            <Button size="sm" className="h-7 text-xs bg-red-600 hover:bg-red-700">Block</Button>
+                          </div>
+                        </div>
                       </AlertDescription>
                     </Alert>
-                    <Alert className="bg-yellow-50 border-yellow-200">
+                    
+                    <Alert className="bg-yellow-50 border-yellow-200 border-l-4 border-l-yellow-500">
                       <Clock className="h-4 w-4 text-yellow-600" />
                       <AlertDescription className="text-yellow-800">
-                        <strong>Duplicate Service Fee:</strong> Potential double-billing detected for provider clinic ID #847. Investigation required.
+                         <div className="flex justify-between items-start">
+                          <div>
+                            <span className="font-bold block">Duplicate Service Fee Detection</span>
+                            Potential double-billing detected for provider clinic ID #847. 
+                            <span className="block mt-1 text-xs opacity-80">Investigation required | Confidence: 87.8%</span>
+                          </div>
+                          <Button size="sm" variant="outline" className="h-7 text-xs border-yellow-300 text-yellow-700 hover:bg-yellow-100">Audit</Button>
+                        </div>
                       </AlertDescription>
                     </Alert>
                   </div>
@@ -304,21 +419,39 @@ export default function MonitoringControl() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <MessageSquare className="w-5 h-5 mr-2 text-primary" />
-                    Natural Language Interface
+                    Natural Language Interface (MHPSS Assistant)
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="p-4 bg-gray-50 rounded-lg border border-dashed border-gray-300">
-                    <p className="text-sm text-gray-500 mb-4 italic">
-                      "Show me MHPSS co-financing status for Zhytomyr region programs with more than 50% funding gaps"
-                    </p>
+                  <div className="p-6 bg-gray-50 rounded-lg border border-dashed border-gray-300">
+                    <div className="flex items-center space-x-2 mb-4">
+                      <LayoutDashboard className="w-4 h-4 text-primary" />
+                      <span className="text-sm font-semibold text-gray-700">Suggested Queries:</span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                      <button className="text-left p-2 text-xs bg-white hover:bg-gray-100 border rounded transition-colors">
+                        "Show MHPSS co-financing status for Zhytomyr programs"
+                      </button>
+                      <button className="text-left p-2 text-xs bg-white hover:bg-gray-100 border rounded transition-colors">
+                        "Generate risk report for adolescent support network"
+                      </button>
+                      <button className="text-left p-2 text-xs bg-white hover:bg-gray-100 border rounded transition-colors">
+                        "Identify suspicious transactions in the last 24 hours"
+                      </button>
+                      <button className="text-left p-2 text-xs bg-white hover:bg-gray-100 border rounded transition-colors">
+                        "Check provider clinic #847 clinical audit status"
+                      </button>
+                    </div>
                     <div className="flex space-x-2">
-                      <input 
-                        type="text" 
-                        placeholder="Ask the system in plain English..." 
-                        className="flex-1 p-2 border rounded-md focus:ring-2 focus:ring-primary outline-none"
-                      />
-                      <Button>Execute Query</Button>
+                      <div className="relative flex-1">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        <input 
+                          type="text" 
+                          placeholder="Ask the system in plain English..." 
+                          className="w-full pl-10 pr-4 py-2 border rounded-md focus:ring-2 focus:ring-primary outline-none bg-white text-sm"
+                        />
+                      </div>
+                      <Button className="px-6 shadow-sm">Execute Query</Button>
                     </div>
                   </div>
                 </CardContent>

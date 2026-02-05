@@ -95,7 +95,7 @@ export default function Projects() {
 
           {/* Projects Grid */}
           {projectsLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
               {[...Array(6)].map((_, i) => (
                 <Card key={i} className="animate-pulse">
                   <CardHeader>
@@ -113,7 +113,7 @@ export default function Projects() {
               ))}
             </div>
           ) : projects && projects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
               {projects.map((project) => {
                 const progress = project.targetAmount > 0 
                   ? (Number(project.currentAmount) / Number(project.targetAmount)) * 100 

@@ -44,14 +44,14 @@ export default function Sidebar() {
               <button
                 key={item.href}
                 onClick={() => setLocation(item.href)}
-                className={`w-full flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                className={`w-full flex items-center justify-start px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                   isActive
                     ? "bg-primary text-white"
                     : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
-                <Icon className="mr-3 h-4 w-4" />
-                {item.label}
+                <Icon className="mr-3 h-4 w-4 shrink-0" />
+                <span className="truncate text-left">{item.label}</span>
               </button>
             );
           })}
