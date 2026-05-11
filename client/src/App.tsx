@@ -15,12 +15,22 @@ import FeelAgainProgram from "@/pages/feel-again-program";
 import Donate from "@/pages/donate";
 import Transparency from "@/pages/transparency";
 import Reports from "@/pages/reports";
+import PortalSelect from "@/pages/portal-select";
+import PortalBeneficiary from "@/pages/portal-beneficiary";
+import PortalProvider from "@/pages/portal-provider";
+import PortalDonor from "@/pages/portal-donor";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
 
   return (
     <Switch>
+      {/* Portal routes — always accessible, no auth required */}
+      <Route path="/portal" component={PortalSelect} />
+      <Route path="/portal/beneficiary" component={PortalBeneficiary} />
+      <Route path="/portal/provider" component={PortalProvider} />
+      <Route path="/portal/donor" component={PortalDonor} />
+
       {isLoading || !isAuthenticated ? (
         <Route path="/" component={Landing} />
       ) : (
