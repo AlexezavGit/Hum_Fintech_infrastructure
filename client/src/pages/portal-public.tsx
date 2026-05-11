@@ -1,5 +1,5 @@
 import { useLocation } from "wouter";
-import { BarChart3, Activity, HeartPulse, Users, Wallet, TrendingUp, ShieldCheck, Globe2 } from "lucide-react";
+import { BarChart3, Users, Wallet, TrendingUp, Globe2, ShieldCheck, Activity, HeartPulse } from "lucide-react";
 
 const stats = [
   { label: "Resources used", value: "73%", icon: Wallet },
@@ -19,21 +19,13 @@ export default function PortalPublic() {
             <h1 className="text-2xl font-bold teal-text">Public Control Dashboard</h1>
             <p className="text-sm text-[hsl(185,15%,55%)]">Open monitoring of resources, efficiency, outcomes, and impact.</p>
           </div>
-          <button onClick={() => setLocation("/portal")} className="px-4 py-2 rounded-xl bg-[hsla(185,100%,40%,0.15)] border border-[hsla(185,100%,40%,0.3)] text-[hsl(185,100%,60%)] text-sm">
-            Back to roles
-          </button>
+          <button onClick={() => setLocation("/portal")} className="px-4 py-2 rounded-xl bg-[hsla(185,100%,40%,0.15)] border border-[hsla(185,100%,40%,0.3)] text-[hsl(185,100%,60%)] text-sm">Back to roles</button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {stats.map((stat) => {
             const Icon = stat.icon;
-            return (
-              <div key={stat.label} className="glass-card rounded-2xl p-5 border border-[hsla(185,30%,20%,0.5)]">
-                <Icon className="w-5 h-5 text-[hsl(185,100%,50%)] mb-3" />
-                <p className="text-2xl font-black text-[hsl(185,20%,92%)]">{stat.value}</p>
-                <p className="text-sm text-[hsl(185,15%,55%)]">{stat.label}</p>
-              </div>
-            );
+            return <div key={stat.label} className="glass-card rounded-2xl p-5 border border-[hsla(185,30%,20%,0.5)]"><Icon className="w-5 h-5 text-[hsl(185,100%,50%)] mb-3" /><p className="text-2xl font-black text-[hsl(185,20%,92%)]">{stat.value}</p><p className="text-sm text-[hsl(185,15%,55%)]">{stat.label}</p></div>;
           })}
         </div>
 
