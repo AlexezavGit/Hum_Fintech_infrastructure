@@ -10,7 +10,6 @@ import Dashboard from "@/pages/dashboard";
 import Projects from "@/pages/projects";
 import Programs from "@/pages/programs";
 import MonitoringControl from "@/pages/monitoring-control";
-import EfficiencyIndex from "@/pages/efficiency-index";
 import FeelAgainProgram from "@/pages/feel-again-program";
 import Donate from "@/pages/donate";
 import Transparency from "@/pages/transparency";
@@ -19,17 +18,20 @@ import PortalSelect from "@/pages/portal-select";
 import PortalBeneficiary from "@/pages/portal-beneficiary";
 import PortalProvider from "@/pages/portal-provider";
 import PortalDonor from "@/pages/portal-donor";
+import PortalAdmin from "@/pages/portal-admin";
+import PortalPublic from "@/pages/portal-public";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
 
   return (
     <Switch>
-      {/* Portal routes — always accessible, no auth required */}
       <Route path="/portal" component={PortalSelect} />
       <Route path="/portal/beneficiary" component={PortalBeneficiary} />
       <Route path="/portal/provider" component={PortalProvider} />
       <Route path="/portal/donor" component={PortalDonor} />
+      <Route path="/portal/admin" component={PortalAdmin} />
+      <Route path="/portal/public" component={PortalPublic} />
 
       {isLoading || !isAuthenticated ? (
         <Route path="/" component={Landing} />
