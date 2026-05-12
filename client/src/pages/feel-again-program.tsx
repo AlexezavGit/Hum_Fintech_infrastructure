@@ -27,7 +27,7 @@ export default function FeelAgainProgram() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen blueprint-bg">
       <Header />
       <div className="flex">
         <Sidebar />
@@ -36,8 +36,8 @@ export default function FeelAgainProgram() {
             <div className="flex items-center space-x-4">
               <img src={logoPath} alt="Feel Again" className="h-12 w-12 object-contain" />
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">Feel Again</h1>
-                <p className="text-gray-600">Professional MHPSS Ecosystem for Trauma Recovery</p>
+                <h1 className="text-3xl font-bold teal-text">Feel Again</h1>
+                <p className="text-[hsl(185,15%,55%)]">Professional MHPSS Ecosystem for Trauma Recovery</p>
               </div>
             </div>
             <Button size="lg" className="bg-primary hover:bg-blue-700 text-white">

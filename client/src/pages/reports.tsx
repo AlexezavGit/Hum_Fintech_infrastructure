@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import Header from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -40,7 +42,7 @@ export default function Reports() {
       title: "Greater Transparency",
       status: "compliant",
       progress: 94,
-      description: "Публічна звітність про розподіл ресурсів",
+      description: "Public reporting on resource distribution",
       lastUpdate: "2024-12-15"
     },
     {
@@ -48,7 +50,7 @@ export default function Reports() {
       title: "More Support and Funding Tools for Local Actors",
       status: "in-progress",
       progress: 78,
-      description: "Підтримка місцевих організацій в Україні",
+      description: "Support for local organizations in Ukraine",
       lastUpdate: "2024-12-10"
     },
     {
@@ -56,7 +58,7 @@ export default function Reports() {
       title: "Increase Efficiency",
       status: "compliant",
       progress: 87,
-      description: "Оптимізація процесів через Stream платформу",
+      description: "Process optimization via the Feel Again platform",
       lastUpdate: "2024-12-14"
     },
     {
@@ -64,7 +66,7 @@ export default function Reports() {
       title: "Reduce Duplication",
       status: "compliant",
       progress: 91,
-      description: "Координація через єдину платформу",
+      description: "Coordination through a unified platform",
       lastUpdate: "2024-12-12"
     },
     {
@@ -72,7 +74,7 @@ export default function Reports() {
       title: "Improve Joint Needs Assessment",
       status: "compliant",
       progress: 89,
-      description: "AI-аналітика для оцінки потреб",
+      description: "AI analytics for needs assessment",
       lastUpdate: "2024-12-13"
     }
   ];
@@ -81,31 +83,31 @@ export default function Reports() {
     {
       element: "Organisation Identifier",
       status: "compliant",
-      description: "Stream-UA-001",
+      description: "FEELAGAIN-UA-001",
       lastPublished: "2024-12-15"
     },
     {
       element: "Activity Identifier",
       status: "compliant", 
-      description: "Унікальні ID для всіх програм",
+      description: "Unique IDs for all programs",
       lastPublished: "2024-12-15"
     },
     {
       element: "Financial Data",
       status: "compliant",
-      description: "Автоматична публікація фінансових даних",
+      description: "Automated publication of financial data",
       lastPublished: "2024-12-15"
     },
     {
       element: "Geographic Data",
       status: "compliant",
-      description: "Покриття регіонів України",
+      description: "Regional coverage across Ukraine",
       lastPublished: "2024-12-15"
     },
     {
       element: "Results Data", 
       status: "in-progress",
-      description: "Інтеграція показників результативності",
+      description: "Integration of performance indicators",
       lastPublished: "2024-12-10"
     }
   ];
@@ -126,46 +128,48 @@ export default function Reports() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "compliant":
-        return <Badge variant="default" className="bg-green-100 text-green-800">Відповідає</Badge>;
+        return <Badge variant="default" className="bg-green-100 text-green-800">Compliant</Badge>;
       case "in-progress":
-        return <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">В процесі</Badge>;
+        return <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">In Progress</Badge>;
       case "non-compliant":
-        return <Badge variant="destructive">Не відповідає</Badge>;
+        return <Badge variant="destructive">Non-Compliant</Badge>;
       default:
-        return <Badge variant="outline">Невідомо</Badge>;
+        return <Badge variant="outline">Unknown</Badge>;
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      <div className="container mx-auto p-6 space-y-8">
-        {/* Header */}
+    <div className="min-h-screen blueprint-bg">
+      <Header />
+      <div className="flex">
+      <Sidebar />
+      <div className="flex-1 container mx-auto p-6 space-y-8">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Звітність та Стандарти
+            <h1 className="text-3xl font-bold teal-text">
+              Reports & Standards
             </h1>
-            <p className="text-gray-600 dark:text-gray-300 mt-2">
-              Автоматична звітність відповідно до Grand Bargain та IATI стандартів
+            <p className="text-[hsl(185,15%,55%)] mt-2">
+              Automated reporting aligned with Grand Bargain and IATI standards
             </p>
           </div>
           
           <div className="flex gap-3">
             <Select value={selectedPeriod} onValueChange={setSelectedPeriod}>
               <SelectTrigger className="w-48">
-                <SelectValue placeholder="Оберіть період" />
+                <SelectValue placeholder="Select period" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="current-month">Поточний місяць</SelectItem>
-                <SelectItem value="current-quarter">Поточний квартал</SelectItem>
-                <SelectItem value="current-year">Поточний рік</SelectItem>
-                <SelectItem value="previous-year">Попередній рік</SelectItem>
+                <SelectItem value="current-month">Current Month</SelectItem>
+                <SelectItem value="current-quarter">Current Quarter</SelectItem>
+                <SelectItem value="current-year">Current Year</SelectItem>
+                <SelectItem value="previous-year">Previous Year</SelectItem>
               </SelectContent>
             </Select>
             
             <Button className="bg-blue-600 hover:bg-blue-700">
               <Download className="h-4 w-4 mr-2" />
-              Експорт звітів
+              Export Reports
             </Button>
           </div>
         </div>
@@ -181,7 +185,7 @@ export default function Reports() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-green-600">88%</div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Відповідність</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Compliance</p>
             </CardContent>
           </Card>
 
@@ -194,7 +198,7 @@ export default function Reports() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-blue-600">92%</div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Відповідність</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Compliance</p>
             </CardContent>
           </Card>
 
@@ -202,12 +206,12 @@ export default function Reports() {
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
                 <FileText className="h-4 w-4 text-purple-600" />
-                Автозвіти
+                Auto-Reports
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-purple-600">156</div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Цього місяця</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">This month</p>
             </CardContent>
           </Card>
 
@@ -215,7 +219,7 @@ export default function Reports() {
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
                 <Calendar className="h-4 w-4 text-orange-600" />
-                Остання публікація
+                Last Published
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -242,7 +246,7 @@ export default function Reports() {
                   Grand Bargain Commitments Tracking
                 </CardTitle>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Відстеження виконання 5 ключових зобов'язань Grand Bargain
+                  Tracking compliance with 5 key Grand Bargain commitments
                 </p>
               </CardHeader>
               <CardContent>
@@ -272,7 +276,7 @@ export default function Reports() {
                           <span className="font-medium">{commitment.progress}%</span>
                         </div>
                         <span className="text-gray-500">
-                          Оновлено: {commitment.lastUpdate}
+                          Updated: {commitment.lastUpdate}
                         </span>
                       </div>
                     </div>
@@ -291,7 +295,7 @@ export default function Reports() {
                   IATI Standard Compliance
                 </CardTitle>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Відповідність елементам IATI стандарту для прозорості
+                  Compliance with IATI standard elements for transparency
                 </p>
               </CardHeader>
               <CardContent>
@@ -311,7 +315,7 @@ export default function Reports() {
                       </p>
                       
                       <div className="text-xs text-gray-500">
-                        Останнє оновлення: {standard.lastPublished}
+                        Last updated: {standard.lastPublished}
                       </div>
                     </div>
                   ))}
@@ -321,23 +325,23 @@ export default function Reports() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Автоматична публікація в IATI Registry</CardTitle>
+                <CardTitle>Automated IATI Registry Publication</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <h4 className="font-medium">Наступна публікація</h4>
+                    <h4 className="font-medium">Next Publication</h4>
                     <p className="text-2xl font-bold text-blue-600">31.12.2024</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Квартальний звіт
+                      Quarterly report
                     </p>
                   </div>
                   
                   <div className="space-y-2">
-                    <h4 className="font-medium">Активних програм</h4>
+                    <h4 className="font-medium">Active Programs</h4>
                     <p className="text-2xl font-bold text-green-600">47</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Включені в звітність
+                      Included in reporting
                     </p>
                   </div>
                 </div>
@@ -354,50 +358,50 @@ export default function Reports() {
                   Ukraine-Specific Reporting
                 </CardTitle>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Спеціалізована звітність для українського контексту
+                  Specialized reporting for the Ukrainian humanitarian context
                 </p>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-4">
-                    <h4 className="font-medium">Регіональне покриття</h4>
+                    <h4 className="font-medium">Regional Coverage</h4>
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Київська область</span>
-                        <span className="text-sm font-medium">23 програми</span>
+                        <span className="text-sm">Kyiv Oblast</span>
+                        <span className="text-sm font-medium">23 programs</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Харківська область</span>
-                        <span className="text-sm font-medium">18 програм</span>
+                        <span className="text-sm">Kharkiv Oblast</span>
+                        <span className="text-sm font-medium">18 programs</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Одеська область</span>
-                        <span className="text-sm font-medium">12 програм</span>
+                        <span className="text-sm">Odessa Oblast</span>
+                        <span className="text-sm font-medium">12 programs</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Львівська область</span>
-                        <span className="text-sm font-medium">8 програм</span>
+                        <span className="text-sm">Lviv Oblast</span>
+                        <span className="text-sm font-medium">8 programs</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    <h4 className="font-medium">Категорії допомоги</h4>
+                    <h4 className="font-medium">Aid Categories</h4>
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Медична допомога</span>
+                        <span className="text-sm">Medical Aid</span>
                         <span className="text-sm font-medium">$2.1M</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Психологічна підтримка</span>
+                        <span className="text-sm">Psychological Support</span>
                         <span className="text-sm font-medium">$890K</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Освітні програми</span>
+                        <span className="text-sm">Education Programs</span>
                         <span className="text-sm font-medium">$650K</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Продовольча допомога</span>
+                        <span className="text-sm">Food Assistance</span>
                         <span className="text-sm font-medium">$1.4M</span>
                       </div>
                     </div>
@@ -414,23 +418,24 @@ export default function Reports() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="text-center space-y-2">
                     <div className="text-2xl font-bold text-blue-600">2,850</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Активних бенефіціарів</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Active Beneficiaries</div>
                   </div>
                   
                   <div className="text-center space-y-2">
                     <div className="text-2xl font-bold text-green-600">89.3%</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Рівень завершення</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Completion Rate</div>
                   </div>
                   
                   <div className="text-center space-y-2">
                     <div className="text-2xl font-bold text-purple-600">16.2</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Середні тижні одужання</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Avg. Recovery Weeks</div>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </TabsContent>
         </Tabs>
+      </div>
       </div>
     </div>
   );

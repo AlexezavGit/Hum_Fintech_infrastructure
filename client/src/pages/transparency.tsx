@@ -89,15 +89,14 @@ export default function Transparency() {
   const completionRate = totalTransactions > 0 ? (completedTransactions / totalTransactions) * 100 : 100;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen blueprint-bg">
       <Header />
       <div className="flex">
         <Sidebar />
         <main className="flex-1 p-8">
-          {/* Header Section */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Transparency Dashboard</h1>
-            <p className="text-gray-600 mt-1">Complete visibility into all humanitarian aid transactions</p>
+            <h1 className="text-2xl font-bold teal-text">Transparency Dashboard</h1>
+            <p className="text-[hsl(185,15%,55%)] mt-1">Complete visibility into all humanitarian aid transactions</p>
           </div>
 
           {/* Transparency Metrics */}

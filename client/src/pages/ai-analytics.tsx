@@ -180,16 +180,16 @@ export default function AIAnalytics() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen blueprint-bg">
       <Header />
       <div className="flex">
         <Sidebar />
         <main className="flex-1 p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">AI/ML Аналітика і Автоматизація</h1>
+            <h1 className="text-2xl font-bold teal-text">AI / ML Analytics & Automation</h1>
             <p className="text-gray-600 mt-1">
-              Інтелектуальна система моніторингу та управління фінансовими потоками
+              Intelligent monitoring and financial flow management system
             </p>
           </div>
 

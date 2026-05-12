@@ -141,15 +141,14 @@ export default function Donate() {
   const selectedProjectData = activeProjects.find(p => p.id === selectedProject);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen blueprint-bg">
       <Header />
       <div className="flex">
         <Sidebar />
         <main className="flex-1 p-8">
-          {/* Header Section */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Support Professional Care</h1>
-            <p className="text-gray-600 mt-1">Direct support for MHPSS initiatives with transparent tracking</p>
+            <h1 className="text-2xl font-bold teal-text">Support Professional Care</h1>
+            <p className="text-[hsl(185,15%,55%)] mt-1">Direct support for MHPSS initiatives with transparent tracking</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

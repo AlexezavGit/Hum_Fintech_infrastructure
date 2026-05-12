@@ -186,16 +186,16 @@ export default function RealTimeOperations() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen blueprint-bg">
       <Header />
       <div className="flex">
         <Sidebar />
         <main className="flex-1 p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Real-time Операційний Центр</h1>
+            <h1 className="text-2xl font-bold teal-text">Real-Time Operations Center</h1>
             <p className="text-gray-600 mt-1">
-              Apache Kafka/Flink стрімінг для оперативного моніторингу та реагування
+              Apache Kafka/Flink streaming for real-time operational monitoring and response
             </p>
           </div>
 

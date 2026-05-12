@@ -1,7 +1,6 @@
 import { useLocation } from "wouter";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { BarChart3, Heart, FolderOpen, Shield, FileText, Plus, Search, Users, HeartHandshake, ShieldCheck, Landmark, Monitor } from "lucide-react";
+import { BarChart3, Heart, FolderOpen, Shield, FileText, Plus, Search, Users, HeartHandshake, ShieldCheck } from "lucide-react";
 
 const navigationItems = [
   { href: "/", label: "Overview", icon: BarChart3 },
@@ -18,40 +17,45 @@ export default function Sidebar() {
   const [location, setLocation] = useLocation();
 
   return (
-    <aside className="w-64 bg-white shadow-sm h-screen sticky top-16 overflow-y-auto">
-      <div className="p-6">
-        <div className="space-y-1">
+    <aside className="w-56 glass-card border-r border-[hsla(185,80%,60%,0.1)] h-screen sticky top-14 overflow-y-auto flex-shrink-0">
+      <div className="p-4">
+        <div className="space-y-0.5">
           {navigationItems.map((item) => {
             const Icon = item.icon;
             const isActive = location === item.href;
-
             return (
               <button
                 key={item.href}
                 onClick={() => setLocation(item.href)}
-                className={`w-full flex items-center justify-start px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                  isActive ? "bg-primary text-white" : "text-gray-700 hover:bg-gray-100"
+                className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all text-left ${
+                  isActive
+                    ? "bg-[hsla(185,100%,40%,0.15)] text-[hsl(185,100%,60%)] border border-[hsla(185,100%,40%,0.25)]"
+                    : "text-[hsl(185,15%,55%)] hover:text-[hsl(185,20%,82%)] hover:bg-[hsla(185,100%,40%,0.07)]"
                 }`}
               >
-                <Icon className="mr-3 h-4 w-4 shrink-0" />
-                <span className="truncate text-left">{item.label}</span>
+                <Icon className={`h-4 w-4 shrink-0 ${isActive ? "text-[hsl(185,100%,50%)]" : ""}`} />
+                <span className="truncate">{item.label}</span>
               </button>
             );
           })}
         </div>
 
-        <Separator className="my-6" />
+        <Separator className="my-4 bg-[hsla(185,30%,20%,0.5)]" />
 
-        <div className="space-y-3">
-          <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Quick Actions</h3>
-          <Button className="w-full bg-secondary hover:bg-green-700 text-white" onClick={() => setLocation("/portal/donor")}>
-            <Plus className="mr-2 h-4 w-4" />
-            Create Program
-          </Button>
-          <Button variant="outline" className="w-full border-gray-300 text-gray-700 hover:bg-gray-50" onClick={() => setLocation("/portal/provider")}>
-            <Search className="mr-2 h-4 w-4" />
-            Provider Workspace
-          </Button>
+        <div className="space-y-2">
+          <p className="text-[10px] font-semibold text-[hsl(185,15%,35%)] uppercase tracking-wider px-3">Quick Actions</p>
+          <button
+            onClick={() => setLocation("/portal/donor")}
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg bg-[hsl(43,96%,56%)] text-[hsl(195,55%,8%)] text-xs font-semibold hover:bg-[hsl(43,96%,50%)] transition-colors"
+          >
+            <Plus className="h-3.5 w-3.5" />Create Program
+          </button>
+          <button
+            onClick={() => setLocation("/portal/provider")}
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg border border-[hsla(185,100%,40%,0.3)] text-[hsl(185,100%,60%)] text-xs font-medium hover:bg-[hsla(185,100%,40%,0.08)] transition-colors"
+          >
+            <Search className="h-3.5 w-3.5" />Provider Workspace
+          </button>
         </div>
       </div>
     </aside>

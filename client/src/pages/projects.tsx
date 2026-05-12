@@ -50,15 +50,15 @@ export default function Projects() {
   if (isLoading || !isAuthenticated) return <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen blueprint-bg">
       <Header />
       <div className="flex">
         <Sidebar />
         <main className="flex-1 p-8">
           <div className="mb-8 flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Projects & Organizations</h1>
-              <p className="text-gray-600 mt-1">Provider projects, donor coordination, and visible humanitarian requests.</p>
+              <h1 className="text-2xl font-bold teal-text">Projects & Organizations</h1>
+              <p className="text-[hsl(185,15%,55%)] mt-1">Provider projects, donor coordination, and visible humanitarian requests.</p>
             </div>
             <Button className="bg-secondary hover:bg-green-700 text-white"><Plus className="w-4 h-4 mr-2" />Submit Project</Button>
           </div>

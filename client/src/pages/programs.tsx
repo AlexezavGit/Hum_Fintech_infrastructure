@@ -72,14 +72,14 @@ export default function Programs() {
   if (isLoading || !isAuthenticated) return <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen blueprint-bg">
       <Header />
       <div className="flex">
         <Sidebar />
         <main className="flex-1 p-8">
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Funding Programs</h1>
-            <p className="text-gray-600 mt-1">MHPSS coordination programs with transparent tracking, donor matching, and provider participation.</p>
+            <h1 className="text-2xl font-bold teal-text">Funding Programs</h1>
+            <p className="text-[hsl(185,15%,55%)] mt-1">MHPSS coordination programs with transparent tracking, donor matching, and provider participation.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 text-left">
             <Card><CardContent className="p-6"><div className="flex items-center justify-between"><div className="text-left"><p className="text-sm font-medium text-gray-600">Active Programs</p><p className="text-2xl font-bold text-gray-900">47</p></div><Heart className="h-8 w-8 text-secondary" /></div></CardContent></Card>

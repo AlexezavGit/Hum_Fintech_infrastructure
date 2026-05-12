@@ -60,20 +60,19 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen blueprint-bg">
       <Header />
       <div className="flex">
         <Sidebar />
         <main className="flex-1 p-8">
-          {/* Header Section */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Feel Again Dashboard</h1>
-            <p className="text-gray-600 mt-1">Dignified psychological support ecosystem. Professional MHPSS care for trauma recovery.</p>
+            <h1 className="text-2xl font-bold teal-text">Feel Again Dashboard</h1>
+            <p className="text-[hsl(185,15%,55%)] mt-1">Dignified psychological support ecosystem. Professional MHPSS care for trauma recovery.</p>
           </div>
 
           {/* Live Stream Metrics - Top Priority */}
           <div className="mb-8">
-            <Card className="border-2 border-primary/20 bg-gradient-to-r from-blue-50 to-green-50">
+            <Card className="border border-[hsla(185,100%,40%,0.25)] bg-[hsla(195,45%,11%,0.7)]">
               <CardHeader>
                 <CardTitle className="flex items-center text-2xl">
                   <Activity className="w-6 h-6 mr-3 text-primary" />

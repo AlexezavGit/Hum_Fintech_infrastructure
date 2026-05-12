@@ -199,16 +199,16 @@ export default function EfficiencyIndex() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen blueprint-bg">
       <Header />
       <div className="flex">
         <Sidebar />
         <main className="flex-1 p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Композитний Індекс Ефективності (CIE)</h1>
+            <h1 className="text-2xl font-bold teal-text">Composite Efficiency Index (CEI)</h1>
             <p className="text-gray-600 mt-1">
-              Real-time розрахунок ефективності відповідно до Grand Bargain commitments
+              Real-time efficiency calculation aligned with Grand Bargain commitments
             </p>
           </div>
 
