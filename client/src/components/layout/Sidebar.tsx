@@ -12,7 +12,6 @@ const navigationItems = [
   { href: "/donate", label: "Donations", icon: Heart },
   { href: "/transparency", label: "Transparency", icon: Shield },
   { href: "/reports", label: "Reports", icon: FileText },
-  { href: "/portal", label: "Role Portals", icon: Monitor },
 ];
 
 export default function Sidebar() {
