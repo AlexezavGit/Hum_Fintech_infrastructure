@@ -1,12 +1,10 @@
 import { useLocation } from "wouter";
 import { Separator } from "@/components/ui/separator";
-import { BarChart3, Heart, FolderOpen, Shield, FileText, Plus, Search, Users, HeartHandshake, ShieldCheck } from "lucide-react";
+import { BarChart3, Zap, Shield, FileText, Plus, Search, Heart, ShieldCheck } from "lucide-react";
 
 const navigationItems = [
   { href: "/", label: "Overview", icon: BarChart3 },
-  { href: "/programs", label: "Funding Programs", icon: Users },
-  { href: "/feel-again", label: "Feel Again", icon: HeartHandshake },
-  { href: "/projects", label: "Projects & Organizations", icon: FolderOpen },
+  { href: "/programs", label: "Impact Financing Hub", icon: Zap },
   { href: "/monitoring-control", label: "Monitoring & Control", icon: ShieldCheck },
   { href: "/donate", label: "Donations", icon: Heart },
   { href: "/transparency", label: "Transparency", icon: Shield },
