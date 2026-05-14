@@ -5,18 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Heart, 
-  Brain, 
-  Users, 
-  Shield, 
-  Activity,
-  CheckCircle,
-  MessageSquare,
-  ClipboardCheck,
-  Building2,
-  Stethoscope
-} from "lucide-react";
+import { Heart, Brain, Users, Shield, Activity, CheckCircle, Building2, Stethoscope } from "lucide-react";
 
 export default function FeelAgainProgram() {
   const metrics = [
@@ -37,7 +26,7 @@ export default function FeelAgainProgram() {
               <img src={logoPath} alt="Feel Again" className="h-12 w-12 object-contain" />
               <div>
                 <h1 className="text-3xl font-bold teal-text">Feel Again</h1>
-                <p className="text-[hsl(185,15%,55%)]">Professional MHPSS Ecosystem for Trauma Recovery</p>
+                <p className="text-[hsl(185,15%,55%)]">Program content lives here as public landing copy.</p>
               </div>
             </div>
             <Button size="lg" className="bg-primary hover:bg-blue-700 text-white">
@@ -69,9 +58,9 @@ export default function FeelAgainProgram() {
                 </CardHeader>
                 <CardContent className="prose prose-blue max-w-none">
                   <p>
-                    <strong>Feel Again</strong> is a unified ecosystem providing dignified and equitable access to professional 
-                    psychological care. We connect survivors of trauma with verified clinical facilities, NGOs, and 
-                    private practitioners through a transparent, tech-enabled framework.
+                    <strong>Feel Again</strong> is a unified ecosystem providing dignified and equitable access to professional
+                    psychological care. The public landing now carries the full front-facing story, while this page keeps a
+                    compact program reference for the internal team.
                   </p>
                   <h3>Key Components</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose">
@@ -93,7 +82,6 @@ export default function FeelAgainProgram() {
                 </CardContent>
               </Card>
             </div>
-            
             <div className="space-y-6">
               <Card>
                 <CardHeader>
@@ -118,7 +106,7 @@ export default function FeelAgainProgram() {
                     <Stethoscope className="w-5 h-5 text-primary" />
                     <div>
                       <p className="text-sm font-medium">Private Practice</p>
-                      <p className="text-xs text-gray-500">Certified psychologists</p>
+                      <p className="text-xs text-gray-500">Independent professionals</p>
                     </div>
                   </div>
                 </CardContent>

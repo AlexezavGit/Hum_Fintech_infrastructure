@@ -1,78 +1,76 @@
 import { useLocation } from "wouter";
-import { Heart, Stethoscope, TrendingUp, ShieldCheck, ArrowRight, Puzzle, LayoutDashboard, FileText, Landmark, FolderOpen, Shield, BarChart3 } from "lucide-react";
+import { Heart, Stethoscope, TrendingUp, ShieldCheck, ArrowRight, Puzzle, BarChart3 } from "lucide-react";
 
-const modules = ["Overview", "Funding Programs", "Feel Again", "Projects & Organizations", "Monitoring & Control", "Donations", "Transparency", "Reports"];
+const portals = [
+  {
+    role: "beneficiary",
+    icon: Heart,
+    label: "Beneficiary",
+    sublabel: "Care + self-check",
+    description: "Answer GAD and PHQ screenings, track sessions, request support, and share recovery feedback.",
+    path: "/portal/beneficiary",
+    badgeClass: "badge-beneficiary",
+    btnClass: "bg-[hsl(185,100%,40%)] hover:bg-[hsl(185,100%,35%)] text-[hsl(195,55%,8%)]",
+    borderColor: "border-[hsla(185,100%,40%,0.35)]",
+    iconBg: "bg-[hsla(185,100%,40%,0.15)]",
+    iconColor: "text-[hsl(185,100%,60%)]",
+  },
+  {
+    role: "provider",
+    icon: Stethoscope,
+    label: "Provider",
+    sublabel: "Clinical workbench",
+    description: "Plan practice, log sessions, create project help requests, produce reports, and manage received funding.",
+    path: "/portal/provider",
+    badgeClass: "badge-provider",
+    btnClass: "bg-[hsl(43,96%,56%)] hover:bg-[hsl(43,96%,50%)] text-[hsl(195,55%,8%)]",
+    borderColor: "border-[hsla(43,96%,56%,0.35)]",
+    iconBg: "bg-[hsla(43,96%,56%,0.15)]",
+    iconColor: "text-[hsl(43,96%,70%)]",
+  },
+  {
+    role: "donor",
+    icon: TrendingUp,
+    label: "Donor",
+    sublabel: "Finance + ESG / CSR",
+    description: "Create programs, set compliance, request data, review reports, and auto-match funding to projects.",
+    path: "/portal/donor",
+    badgeClass: "badge-donor",
+    btnClass: "bg-[hsl(25,75%,52%)] hover:bg-[hsl(25,75%,45%)] text-white",
+    borderColor: "border-[hsla(25,75%,52%,0.35)]",
+    iconBg: "bg-[hsla(25,75%,52%,0.15)]",
+    iconColor: "text-[hsl(25,75%,70%)]",
+  },
+  {
+    role: "admin",
+    icon: ShieldCheck,
+    label: "Admin",
+    sublabel: "Verification + audit",
+    description: "Coordinate, verify, audit, and oversee workflows across beneficiaries, providers, donors, and public control.",
+    path: "/portal/admin",
+    badgeClass: "badge-beneficiary",
+    btnClass: "bg-[hsl(160,84%,39%)] hover:bg-[hsl(160,84%,34%)] text-white",
+    borderColor: "border-[hsla(160,84%,39%,0.35)]",
+    iconBg: "bg-[hsla(160,84%,39%,0.15)]",
+    iconColor: "text-[hsl(160,84%,50%)]",
+  },
+  {
+    role: "public",
+    icon: BarChart3,
+    label: "Public Control",
+    sublabel: "Open monitoring",
+    description: "Track resources, efficiency, completions, and system impact in a public accountability dashboard.",
+    path: "/portal/public",
+    badgeClass: "badge-provider",
+    btnClass: "bg-[hsl(185,100%,40%)] hover:bg-[hsl(185,100%,35%)] text-[hsl(195,55%,8%)]",
+    borderColor: "border-[hsla(185,100%,40%,0.35)]",
+    iconBg: "bg-[hsla(185,100%,40%,0.15)]",
+    iconColor: "text-[hsl(185,100%,60%)]",
+  },
+];
 
 export default function PortalSelect() {
   const [, setLocation] = useLocation();
-
-  const portals = [
-    {
-      role: "beneficiary",
-      icon: Heart,
-      label: "Beneficiary",
-      sublabel: "Care + self-check",
-      description: "Answer GAD and PHQ screenings, track sessions, request support, and share recovery feedback.",
-      path: "/portal/beneficiary",
-      badgeClass: "badge-beneficiary",
-      btnClass: "bg-[hsl(185,100%,40%)] hover:bg-[hsl(185,100%,35%)] text-[hsl(195,55%,8%)]",
-      borderColor: "border-[hsla(185,100%,40%,0.35)]",
-      iconBg: "bg-[hsla(185,100%,40%,0.15)]",
-      iconColor: "text-[hsl(185,100%,60%)]",
-    },
-    {
-      role: "provider",
-      icon: Stethoscope,
-      label: "Provider",
-      sublabel: "Clinical workbench",
-      description: "Log sessions, create project help requests, produce reports, and manage received funding.",
-      path: "/portal/provider",
-      badgeClass: "badge-provider",
-      btnClass: "bg-[hsl(43,96%,56%)] hover:bg-[hsl(43,96%,50%)] text-[hsl(195,55%,8%)]",
-      borderColor: "border-[hsla(43,96%,56%,0.35)]",
-      iconBg: "bg-[hsla(43,96%,56%,0.15)]",
-      iconColor: "text-[hsl(43,96%,70%)]",
-    },
-    {
-      role: "donor",
-      icon: TrendingUp,
-      label: "Donor",
-      sublabel: "Finance + ESG / CSR",
-      description: "Create programs, set compliance, request data, review reports, and auto-match funding to projects.",
-      path: "/portal/donor",
-      badgeClass: "badge-donor",
-      btnClass: "bg-[hsl(25,75%,52%)] hover:bg-[hsl(25,75%,45%)] text-white",
-      borderColor: "border-[hsla(25,75%,52%,0.35)]",
-      iconBg: "bg-[hsla(25,75%,52%,0.15)]",
-      iconColor: "text-[hsl(25,75%,70%)]",
-    },
-    {
-      role: "admin",
-      icon: ShieldCheck,
-      label: "Admin",
-      sublabel: "Verification + audit",
-      description: "Coordinate, verify, audit, and oversee all workflows across beneficiaries, providers, donors, and public control.",
-      path: "/portal/admin",
-      badgeClass: "badge-beneficiary",
-      btnClass: "bg-[hsl(160,84%,39%)] hover:bg-[hsl(160,84%,34%)] text-white",
-      borderColor: "border-[hsla(160,84%,39%,0.35)]",
-      iconBg: "bg-[hsla(160,84%,39%,0.15)]",
-      iconColor: "text-[hsl(160,84%,50%)]",
-    },
-    {
-      role: "public",
-      icon: BarChart3,
-      label: "Public Control",
-      sublabel: "Open monitoring",
-      description: "Track resources, efficiency, completions, and system impact in a public accountability dashboard.",
-      path: "/portal/public",
-      badgeClass: "badge-provider",
-      btnClass: "bg-[hsl(185,100%,40%)] hover:bg-[hsl(185,100%,35%)] text-[hsl(195,55%,8%)]",
-      borderColor: "border-[hsla(185,100%,40%,0.35)]",
-      iconBg: "bg-[hsla(185,100%,40%,0.15)]",
-      iconColor: "text-[hsl(185,100%,60%)]",
-    },
-  ];
 
   return (
     <div className="min-h-screen blueprint-bg flex flex-col">
@@ -104,8 +102,8 @@ export default function PortalSelect() {
             <span className="text-[hsl(185,20%,85%)] text-3xl font-light">Choose your interface</span>
           </h2>
           <p className="text-[hsl(185,15%,55%)] text-lg leading-relaxed">
-            One platform, many roles. Each portal keeps the same family of modules — Overview, Funding Programs,
-            Feel Again, Projects & Organizations, Monitoring & Control, Donations, Transparency, and Reports.
+            One platform, many roles. Each portal keeps the same family of modules — Overview, Impact Financing Hub,
+            Monitoring & Control, Donations, Transparency, and Reports.
           </p>
         </div>
 
@@ -127,11 +125,9 @@ export default function PortalSelect() {
                 <h3 className="text-xl font-bold text-[hsl(185,20%,92%)] mt-3 mb-2">{portal.label}</h3>
                 <p className="text-sm text-[hsl(185,15%,50%)] leading-relaxed mb-5">{portal.description}</p>
                 <div className="flex flex-wrap gap-1.5 mb-5">
-                  {modules.map((m) => (
-                    <span key={m} className="text-[10px] px-2 py-1 rounded-full border border-[hsla(185,30%,20%,0.8)] text-[hsl(185,15%,58%)] bg-[hsla(195,45%,9%,0.6)]">
-                      {m}
-                    </span>
-                  ))}
+                  <span className="text-[10px] px-2 py-1 rounded-full border border-[hsla(185,30%,20%,0.8)] text-[hsl(185,15%,58%)] bg-[hsla(195,45%,9%,0.6)]">Overview</span>
+                  <span className="text-[10px] px-2 py-1 rounded-full border border-[hsla(185,30%,20%,0.8)] text-[hsl(185,15%,58%)] bg-[hsla(195,45%,9%,0.6)]">Monitoring & Control</span>
+                  <span className="text-[10px] px-2 py-1 rounded-full border border-[hsla(185,30%,20%,0.8)] text-[hsl(185,15%,58%)] bg-[hsla(195,45%,9%,0.6)]">Reports</span>
                 </div>
                 <div className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all ${portal.btnClass}`}>
                   Enter Portal
@@ -142,14 +138,6 @@ export default function PortalSelect() {
           })}
         </div>
       </main>
-
-      <footer className="mt-auto">
-        <div className="h-1 rainbow-gradient" />
-        <div className="px-8 py-4 flex items-center justify-between text-xs text-[hsl(185,15%,35%)]">
-          <span>© 2026 Feel Again · Healing Bridge · Yety Tracker</span>
-          <span>Powered by Solana · mhGAP compliant</span>
-        </div>
-      </footer>
     </div>
   );
 }
