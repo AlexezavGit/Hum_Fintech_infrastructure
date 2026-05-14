@@ -12,7 +12,7 @@ export default function PortalProvider() {
         <div className="flex items-center gap-3">
           <button onClick={() => setLocation("/portal")} className="p-1.5 rounded-lg hover:bg-[hsla(43,96%,56%,0.1)] text-[hsl(185,15%,55%)]"><ChevronLeft className="w-4 h-4" /></button>
           <div className="w-8 h-8 rounded-lg bg-[hsla(43,96%,56%,0.15)] flex items-center justify-center"><Stethoscope className="w-4 h-4 text-[hsl(43,96%,60%)]" /></div>
-          <div><h1 className="text-sm font-semibold text-[hsl(185,20%,88%)]">Provider Portal</h1><p className="text-xs text-[hsl(185,15%,45%)]">Clinical workbench · reporting · projects · funding</p></div>
+          <div><h1 className="text-sm font-semibold text-[hsl(185,20%,88%)]">Provider Portal</h1><p className="text-xs text-[hsl(185,15%,45%)]">Clinical workbench · reporting · projects · funding · private practice admin</p></div>
         </div>
         <button onClick={() => setShowLogForm(true)} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[hsl(43,96%,56%)] text-[hsl(195,55%,8%)] text-sm font-semibold"><Plus className="w-4 h-4" />Log session</button>
       </div>
@@ -20,7 +20,7 @@ export default function PortalProvider() {
       <div className="max-w-6xl mx-auto px-4 py-8 space-y-6">
         <div className="glass-card rounded-2xl p-6 border border-[hsla(43,96%,56%,0.2)]">
           <h2 className="text-2xl font-bold gold-text">Clinical workspace</h2>
-          <p className="text-sm text-[hsl(185,15%,55%)]">Sessions, auto reports, income tracking, project help creation, and the full admin content block set.</p>
+          <p className="text-sm text-[hsl(185,15%,55%)]">Sessions, auto reports, income tracking, project help creation, and the same admin interface used by private practice specialists.</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
