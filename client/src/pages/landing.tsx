@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
+import FeelLogo from "@/components/FeelLogo";
 import {
   Heart, Shield, Users, TrendingUp, Brain, Stethoscope,
   ArrowRight, DollarSign, Activity, CheckCircle2,
@@ -92,13 +93,7 @@ export default function Landing() {
       <nav style={{ background: "rgba(9,29,48,0.95)", borderBottom: "1px solid rgba(212,160,23,0.15)", position: "sticky", top: 0, zIndex: 30, backdropFilter: "blur(12px)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 1.5rem", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            <div style={{ width: 52, height: 36, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 0 }}>
-              {['F','E','E','L'].map((letter, i) => (
-                <div key={letter + i} style={{ position: 'relative', overflow: 'hidden' }}>
-                  <span style={{ display: 'block', fontWeight: 900, fontSize: 20, lineHeight: '18px', letterSpacing: '-0.22em', transform: `translateX(${i === 1 ? -8 : i === 2 ? -16 : i === 3 ? -24 : 0}px)`, opacity: i === 3 ? 0.6 : 1, background: 'linear-gradient(180deg, rgba(212,160,23,1) 0%, rgba(212,160,23,0.6) 60%, rgba(212,160,23,0.4) 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>{letter}</span>
-                </div>
-              ))}
-            </div>
+            <FeelLogo variant="dark" style={{ width: 40, height: 40, marginRight: 4 }} />
             <span style={{ color: "white", fontWeight: 700, fontSize: 18 }}>Again</span>
             <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 12, marginLeft: 8, paddingLeft: 8, borderLeft: "1px solid rgba(255,255,255,0.1)" }}>Гуманітарна програма MHPSS · UA</span>
           </div>
