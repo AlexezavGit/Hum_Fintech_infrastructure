@@ -20,6 +20,10 @@ import PortalProvider from "@/pages/portal-provider";
 import PortalDonor from "@/pages/portal-donor";
 import PortalAdmin from "@/pages/portal-admin";
 import PortalPublic from "@/pages/portal-public";
+import ForDonors from "@/pages/for-donors";
+import ForProviders from "@/pages/for-providers";
+import ForBeneficiaries from "@/pages/for-beneficiaries";
+import PublicControl from "@/pages/public-control";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -27,11 +31,16 @@ function Router() {
   return (
     <Switch>
       <Route path="/portal" component={PortalSelect} />
+      <Route path="/portal-select" component={PortalSelect} />
       <Route path="/portal/beneficiary" component={PortalBeneficiary} />
       <Route path="/portal/provider" component={PortalProvider} />
       <Route path="/portal/donor" component={PortalDonor} />
       <Route path="/portal/admin" component={PortalAdmin} />
       <Route path="/portal/public" component={PortalPublic} />
+      <Route path="/for-donors" component={ForDonors} />
+      <Route path="/for-providers" component={ForProviders} />
+      <Route path="/for-beneficiaries" component={ForBeneficiaries} />
+      <Route path="/public-control" component={PublicControl} />
 
       {isLoading || !isAuthenticated ? (
         <Route path="/" component={Landing} />

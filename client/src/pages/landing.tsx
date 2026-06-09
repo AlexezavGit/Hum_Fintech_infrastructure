@@ -42,7 +42,7 @@ const audiences = [
     tagline: "Рівний доступ. Цифровий супровід.",
     points: ["Ступенева допомога від PSS до клінічної терапії", "PHQ-9 / GAD-7 / WHO-5 — вимірювані результати", "Ресурси не залежать від місця знаходження"],
     cta: "Отримати підтримку",
-    route: "/portal/beneficiary",
+    route: "/for-beneficiaries",
     accent: "hsl(270,60%,65%)",
     border: "hsla(270,60%,65%,0.25)",
     bg: "hsla(270,60%,50%,0.06)",
@@ -54,7 +54,7 @@ const audiences = [
     tagline: "Справедлива платня. Персональна ефективність.",
     points: ["Вихід із тіні через Digital Corridor", "mhGAP-сумісні звіти та супервізія", "Фінансування практики та авто-звітність"],
     cta: "Фахівцям",
-    route: "/portal/provider",
+    route: "/for-providers",
     accent: GOLD,
     border: "rgba(212,160,23,0.25)",
     bg: "rgba(212,160,23,0.06)",
@@ -66,7 +66,7 @@ const audiences = [
     tagline: "Де-ризиковане спів-фінансування. Вимірюваний вплив.",
     points: ["Payment for Result: ресурси → за бенефіціаром", "Блокчейн-верифікований audit trail", "Авто-звітність IATI / Grand Bargain"],
     cta: "Impact Financing Hub",
-    route: "/portal/donor",
+    route: "/for-donors",
     accent: "hsl(160,84%,50%)",
     border: "hsla(160,84%,50%,0.25)",
     bg: "hsla(160,84%,50%,0.06)",
@@ -128,9 +128,10 @@ export default function Landing() {
           <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 18, maxWidth: 640, margin: "0 auto 1rem", lineHeight: 1.6 }}>FEEL Again з'єднує три роз'єднані сектори надавачів з бенефіціарами через єдиний довірений цифровий шар. Не маркетплейс — фінансові рейки для сектору MHPSS.</p>
           <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 14, maxWidth: 520, margin: "0 auto 2.5rem", fontStyle: "italic" }}>«FEEL Again — це Visa гуманітарного сектору психічного здоров'я. Не надає терапію — надає рейки, якими терапія протікає прозоро, підзвітно та масштабно.»</p>
           <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <button onClick={() => setLocation("/portal/beneficiary")} style={{ background: GOLD, color: NAVY, fontWeight: 700, padding: "0.75rem 1.75rem", borderRadius: 8, border: "none", cursor: "pointer", fontSize: 15, display: "flex", alignItems: "center", gap: 6 }}>Отримати підтримку <ArrowRight size={16} /></button>
-            <button onClick={() => setLocation("/portal/provider")} style={{ background: "transparent", color: "white", border: "1px solid rgba(255,255,255,0.35)", padding: "0.75rem 1.5rem", borderRadius: 8, cursor: "pointer", fontSize: 15 }}>Я фахівець</button>
-            <button onClick={() => setLocation("/portal/donor")} style={{ background: "transparent", color: "white", border: "1px solid rgba(255,255,255,0.35)", padding: "0.75rem 1.5rem", borderRadius: 8, cursor: "pointer", fontSize: 15 }}>Я донор / партнер</button>
+            <button onClick={() => setLocation("/for-beneficiaries")} style={{ background: GOLD, color: NAVY, fontWeight: 700, padding: "0.75rem 1.75rem", borderRadius: 8, border: "none", cursor: "pointer", fontSize: 15, display: "flex", alignItems: "center", gap: 6 }}>Отримати підтримку <ArrowRight size={16} /></button>
+            <button onClick={() => setLocation("/for-providers")} style={{ background: "transparent", color: "white", border: "1px solid rgba(255,255,255,0.35)", padding: "0.75rem 1.5rem", borderRadius: 8, cursor: "pointer", fontSize: 15 }}>Я фахівець</button>
+            <button onClick={() => setLocation("/for-donors")} style={{ background: "transparent", color: "white", border: "1px solid rgba(255,255,255,0.35)", padding: "0.75rem 1.5rem", borderRadius: 8, cursor: "pointer", fontSize: 15 }}>Я донор / партнер</button>
+            <button onClick={() => setLocation("/public-control")} style={{ background: "transparent", color: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.15)", padding: "0.75rem 1.5rem", borderRadius: 8, cursor: "pointer", fontSize: 15 }}>Публічний контроль</button>
           </div>
         </div>
       </section>
