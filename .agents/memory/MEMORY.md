@@ -1,0 +1,1 @@
+- [Dependency upgrade batches](dependency-upgrade-batches.md) — align peer package versions together and scope overrides when multiple majors coexist.
