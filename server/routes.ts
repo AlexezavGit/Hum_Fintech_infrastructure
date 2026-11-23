@@ -90,7 +90,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(201).json(project);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        return res.status(400).json({ message: "Invalid project data", errors: error.errors });
+        return res.status(400).json({ message: "Invalid project data", errors: error.issues });
       }
       console.error("Error creating project:", error);
       res.status(500).json({ message: "Failed to create project" });
@@ -142,7 +142,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(201).json(donation);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        return res.status(400).json({ message: "Invalid donation data", errors: error.errors });
+        return res.status(400).json({ message: "Invalid donation data", errors: error.issues });
       }
       console.error("Error creating donation:", error);
       res.status(500).json({ message: "Failed to process donation" });
@@ -199,7 +199,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(201).json(beneficiary);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        return res.status(400).json({ message: "Invalid beneficiary data", errors: error.errors });
+        return res.status(400).json({ message: "Invalid beneficiary data", errors: error.issues });
       }
       console.error("Error creating beneficiary:", error);
       res.status(500).json({ message: "Failed to register beneficiary" });

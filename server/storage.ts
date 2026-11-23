@@ -299,10 +299,16 @@ class MemStorage implements IStorage {
   }
 
   async upsertUser(userData: UpsertUser): Promise<User> {
+    const now = new Date();
     const user: User = {
-      ...userData,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      id: userData.id,
+      email: userData.email ?? null,
+      firstName: userData.firstName ?? null,
+      lastName: userData.lastName ?? null,
+      profileImageUrl: userData.profileImageUrl ?? null,
+      role: userData.role ?? "donor",
+      createdAt: userData.createdAt ?? now,
+      updatedAt: now,
     };
     this.users.set(userData.id, user);
     return user;
@@ -319,6 +325,10 @@ class MemStorage implements IStorage {
   async createProject(project: InsertProject): Promise<Project> {
     const newProject: Project = {
       ...project,
+      imageUrl: project.imageUrl ?? null,
+      currentAmount: "0",
+      status: project.status ?? "active",
+      isVerified: project.isVerified ?? false,
       id: this.projects.length + 1,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -352,7 +362,7 @@ class MemStorage implements IStorage {
   }
 
   async getDonationsByUser(userId: string): Promise<Donation[]> {
-    return this.donations.filter(d => d.userId === userId);
+    return this.donations.filter(d => d.donorId === userId);
   }
 
   async getDonationsByProject(projectId: number): Promise<Donation[]> {
@@ -362,9 +372,11 @@ class MemStorage implements IStorage {
   async createDonation(donation: InsertDonation): Promise<Donation> {
     const newDonation: Donation = {
       ...donation,
+      status: donation.status ?? "pending",
+      isAnonymous: donation.isAnonymous ?? false,
+      message: donation.message ?? null,
       id: this.donations.length + 1,
       createdAt: new Date(),
-      updatedAt: new Date(),
     };
     this.donations.push(newDonation);
     return newDonation;
@@ -375,7 +387,6 @@ class MemStorage implements IStorage {
     if (!donation) return undefined;
     
     donation.status = status;
-    donation.updatedAt = new Date();
     return donation;
   }
 
@@ -390,9 +401,12 @@ class MemStorage implements IStorage {
   async createTransaction(transaction: InsertTransaction): Promise<Transaction> {
     const newTransaction: Transaction = {
       ...transaction,
+      status: transaction.status ?? "pending",
+      recipientInfo: transaction.recipientInfo ?? null,
+      verificationStatus: transaction.verificationStatus ?? "pending",
+      blockchainHash: transaction.blockchainHash ?? null,
       id: this.transactions.length + 1,
       createdAt: new Date(),
-      updatedAt: new Date(),
     };
     this.transactions.push(newTransaction);
     return newTransaction;
@@ -406,7 +420,6 @@ class MemStorage implements IStorage {
     if (verificationStatus) {
       transaction.verificationStatus = verificationStatus;
     }
-    transaction.updatedAt = new Date();
     return transaction;
   }
 
@@ -421,9 +434,12 @@ class MemStorage implements IStorage {
   async createBeneficiary(beneficiary: InsertBeneficiary): Promise<Beneficiary> {
     const newBeneficiary: Beneficiary = {
       ...beneficiary,
+      contactInfo: beneficiary.contactInfo ?? null,
+      verificationStatus: beneficiary.verificationStatus ?? "pending",
+      biometricHash: beneficiary.biometricHash ?? null,
+      receivedAmount: "0",
       id: this.beneficiaries.length + 1,
       createdAt: new Date(),
-      updatedAt: new Date(),
     };
     this.beneficiaries.push(newBeneficiary);
     return newBeneficiary;
@@ -431,20 +447,24 @@ class MemStorage implements IStorage {
 
   async getRecentActivity(limit: number = 10): Promise<ActivityLog[]> {
     return this.activityLog
-      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .sort((a, b) => (b.createdAt?.getTime() ?? 0) - (a.createdAt?.getTime() ?? 0))
       .slice(0, limit);
   }
 
   async getUserActivity(userId: string, limit: number = 10): Promise<ActivityLog[]> {
     return this.activityLog
       .filter(activity => activity.userId === userId)
-      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .sort((a, b) => (b.createdAt?.getTime() ?? 0) - (a.createdAt?.getTime() ?? 0))
       .slice(0, limit);
   }
 
   async logActivity(activity: InsertActivityLog): Promise<ActivityLog> {
     const newActivity: ActivityLog = {
       ...activity,
+      userId: activity.userId ?? null,
+      entityType: activity.entityType ?? null,
+      entityId: activity.entityId ?? null,
+      metadata: activity.metadata ?? null,
       id: this.activityLog.length + 1,
       createdAt: new Date(),
     };
@@ -459,7 +479,7 @@ class MemStorage implements IStorage {
     transparencyScore: number;
   }> {
     return {
-      totalDonated: this.donations.reduce((sum, d) => sum + d.amount, 0),
+      totalDonated: this.donations.reduce((sum, donation) => sum + Number(donation.amount), 0),
       activeProjects: this.projects.filter(p => p.status === 'active').length,
       peopleHelped: this.beneficiaries.length,
       transparencyScore: 95,

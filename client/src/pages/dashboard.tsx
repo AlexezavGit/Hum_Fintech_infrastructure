@@ -26,12 +26,13 @@ import {
   Stethoscope
 } from "lucide-react";
 import { isUnauthorizedError } from "@/lib/authUtils";
+import type { LiveMetrics } from "@shared/schema";
 
 export default function Dashboard() {
   const { toast } = useToast();
   const { isAuthenticated, isLoading } = useAuth();
 
-  const { data: liveMetrics, isLoading: metricsLoading } = useQuery({
+  const { data: liveMetrics, isLoading: metricsLoading } = useQuery<LiveMetrics>({
     queryKey: ["/api/stream/live-metrics"],
     enabled: isAuthenticated,
     refetchInterval: 5000, // Update every 5 seconds for live counters

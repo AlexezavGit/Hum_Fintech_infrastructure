@@ -196,3 +196,28 @@ export type Beneficiary = typeof beneficiaries.$inferSelect;
 export type InsertBeneficiary = z.infer<typeof insertBeneficiarySchema>;
 export type ActivityLog = typeof activityLog.$inferSelect;
 export type InsertActivityLog = z.infer<typeof insertActivityLogSchema>;
+
+export type DashboardStats = {
+  totalDonated: number;
+  activeProjects: number;
+  peopleHelped: number;
+  transparencyScore: number;
+};
+
+export type LiveMetrics = {
+  humanitarian_composite_index: number;
+  total_beneficiaries_served: number;
+  organizations_using_stream: number;
+  total_aid_volume: number;
+  active_programs: number;
+  real_time_transactions: number;
+  blockchain_verifications: number;
+  kyc_verifications_today: number;
+  feel_again: {
+    active_beneficiaries: number;
+    sessions_today: number;
+    completion_rate: number;
+    average_recovery_weeks: number;
+  };
+  last_updated: string;
+};

@@ -340,7 +340,7 @@ export default function ForBeneficiaries() {
                       {spec.lang.map((l) => (
                         <span key={l} style={{ color: "rgba(255,255,255,0.3)", fontSize: 11, padding: "1px 6px", borderRadius: 4, background: "rgba(255,255,255,0.05)" }}>{l}</span>
                       ))}
-                      <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 11, padding: "1px 6px", borderRadius: 4, background: "rgba(45,212,191,0.1)", color: TEAL }}>{spec.license}</span>
+                      <span style={{ fontSize: 11, padding: "1px 6px", borderRadius: 4, background: "rgba(45,212,191,0.1)", color: TEAL }}>{spec.license}</span>
                     </div>
                   </div>
                 </div>

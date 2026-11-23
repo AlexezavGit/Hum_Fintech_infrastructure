@@ -12,6 +12,7 @@ import { Progress } from "@/components/ui/progress";
 import { Shield, Download, Eye, CheckCircle, Clock, AlertTriangle } from "lucide-react";
 import { isUnauthorizedError } from "@/lib/authUtils";
 import type { Transaction } from "@shared/schema";
+import type { DashboardStats } from "@shared/schema";
 
 export default function Transparency() {
   const { toast } = useToast();
@@ -36,7 +37,7 @@ export default function Transparency() {
     enabled: isAuthenticated,
   });
 
-  const { data: dashboardStats } = useQuery({
+  const { data: dashboardStats } = useQuery<DashboardStats>({
     queryKey: ["/api/dashboard/stats"],
     enabled: isAuthenticated,
   });

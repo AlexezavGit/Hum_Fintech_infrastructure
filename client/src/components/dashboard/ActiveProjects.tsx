@@ -13,7 +13,7 @@ export default function ActiveProjects() {
 
   const activeProjects = projects?.filter(p => p.status === "active").slice(0, 3) || [];
 
-  const getStatusIcon = (isVerified: boolean, status: string) => {
+  const getStatusIcon = (isVerified: boolean | null, status: string) => {
     if (isVerified) {
       return <CheckCircle className="w-4 h-4 text-green-600" />;
     }
@@ -23,7 +23,7 @@ export default function ActiveProjects() {
     return <AlertTriangle className="w-4 h-4 text-red-600" />;
   };
 
-  const getStatusBadge = (isVerified: boolean, status: string) => {
+  const getStatusBadge = (isVerified: boolean | null, status: string) => {
     if (isVerified) {
       return <Badge className="bg-green-100 text-green-800">Verified</Badge>;
     }
@@ -61,7 +61,7 @@ export default function ActiveProjects() {
         ) : activeProjects.length > 0 ? (
           <div className="space-y-6">
             {activeProjects.map((project) => {
-              const progress = project.targetAmount > 0 
+              const progress = Number(project.targetAmount) > 0
                 ? (Number(project.currentAmount) / Number(project.targetAmount)) * 100 
                 : 0;
 

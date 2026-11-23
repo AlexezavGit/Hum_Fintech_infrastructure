@@ -172,7 +172,7 @@ export default function Donate() {
                   ) : activeProjects.length > 0 ? (
                     <div className="space-y-4">
                       {activeProjects.map((project) => {
-                        const progress = project.targetAmount > 0 
+                        const progress = Number(project.targetAmount) > 0
                           ? (Number(project.currentAmount) / Number(project.targetAmount)) * 100 
                           : 0;
 
